@@ -23,22 +23,34 @@ class ApiToken
     private $token;
 
     /**
-     * @param string $key The API key to store
+     * @param string $key The API key to use
      */
     public function __construct($key)
+    {
+        $this->set($key);
+    }
+
+    /**
+     * Get the API key in use
+     *
+     * @return string
+     */
+    public function get()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set the API key to use
+     *
+     * @param string $key
+     */
+    public function set($key)
     {
         if (!is_string($key)) {
             throw new InvalidArgumentException('API key must be of type string.');
         }
 
         $this->token = $key;
-    }
-
-    /**
-     * @return string
-     */
-    public function get()
-    {
-        return $this->token;
     }
 }

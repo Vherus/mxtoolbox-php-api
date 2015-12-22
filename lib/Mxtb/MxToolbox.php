@@ -29,7 +29,7 @@ class MxToolbox
     }
 
     /**
-     * Get the instance of
+     * Get the instance of the ApiToken
      *
      * @return ApiToken
      */
