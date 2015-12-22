@@ -1,24 +1,18 @@
 <?php
 
 /**
- * This file is part of the core PHP package for mxtoolbox-api-wrapper.
+ * This file is part of the core PHP package for mxtoolbox-api-wrapper, but was
+ * taken from Michael Roterman's TMDB PHP API Wrapper with his permission.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * This GenericCollection class was very heavily influenced by, and indeed uses
- * many parts directly from, Michael Roterman's TMDB PHP API wrapper with his permission.
- * https://github.com/php-tmdb/api/
- *
  * @package mxtoolbox-api-wrapper
- * @author Nathan King <nkvherus@gmail.com>
  * @author Michael Roterman <michael@wtfz.net>
  * @version dev
  */
 
 namespace Mxtb\Model\Common;
-
-use Traversable;
 
 class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
 {
