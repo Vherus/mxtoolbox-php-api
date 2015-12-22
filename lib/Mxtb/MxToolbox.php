@@ -18,13 +18,23 @@ class MxToolbox
     /**
      * @var ApiToken
      */
-    private static $apiToken;
+    private $apiToken;
 
     /**
      * @param $apiToken
      */
-    public static function setApiToken(ApiToken $apiToken)
+    public function setApiToken(ApiToken $apiToken)
     {
-        self::$apiToken = $apiToken;
+        $this->apiToken = $apiToken;
+    }
+
+    /**
+     * Get the instance of
+     *
+     * @return ApiToken
+     */
+    public function getApiToken()
+    {
+        return $this->apiToken;
     }
 }
