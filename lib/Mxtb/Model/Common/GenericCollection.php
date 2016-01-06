@@ -22,7 +22,7 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @var array
      */
-    private $data;
+    protected $data;
 
     /**
      * GenericCollection constructor.
