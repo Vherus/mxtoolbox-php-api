@@ -15,8 +15,27 @@ declare(strict_types=1);
 
 namespace Mxtb;
 
+use GuzzleHttp\Client;
+
 class MxToolbox
 {
+    /** MxToolbox API version */
+    const VERSION = 'v1';
+
+    /** Base API URI */
+    const MTXB_URI = 'mxtoolbox.com/api';
+
+    /** Insecure schema */
+    const SCHEMA_INSECURE = 'http';
+
+    /** Secure schema */
+    const SCHEMA_SECURE = 'https';
+
+    /**
+     * @var Client
+     */
+    private $httpClient;
+
     /**
      * @var ApiToken
      */
@@ -25,10 +44,19 @@ class MxToolbox
     /**
      * MxToolbox constructor.
      * @param ApiToken|null $apiToken
+     * @param $secure
      */
-    public function __construct(ApiToken $apiToken = null)
+    public function __construct(ApiToken $apiToken = null, bool $secure = true)
     {
         $this->apiToken = $apiToken;
+
+        $this->httpClient = new Client([
+            'base_url'  =>  ['{schema}://{uri}/{version}', [
+                'schema' => ($secure) ? self::SCHEMA_SECURE : self::SCHEMA_INSECURE,
+                'uri' => self::MTXB_URI,
+                'version' => self::VERSION
+            ]]
+        ]);
     }
 
     /**
