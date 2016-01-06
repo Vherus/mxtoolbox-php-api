@@ -11,6 +11,8 @@
  * @version dev
  */
 
+declare(strict_types=1);
+
 namespace Mxtb;
 
 class MxToolbox
@@ -21,19 +23,30 @@ class MxToolbox
     private $apiToken;
 
     /**
-     * @param $apiToken
+     * MxToolbox constructor.
+     * @param ApiToken|null $apiToken
      */
-    public function setApiToken(ApiToken $apiToken)
+    public function __construct(ApiToken $apiToken = null)
     {
         $this->apiToken = $apiToken;
     }
 
     /**
+     * Set the API token to use
+     * @param $apiToken
+     * @return MxToolbox
+     */
+    public function setApiToken(ApiToken $apiToken) : MxToolbox
+    {
+        $this->apiToken = $apiToken;
+        return $this;
+    }
+
+    /**
      * Get the instance of the ApiToken
-     *
      * @return ApiToken
      */
-    public function getApiToken()
+    public function getApiToken() : ApiToken
     {
         return $this->apiToken;
     }

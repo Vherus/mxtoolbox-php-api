@@ -31,11 +31,19 @@ class ApiToken
         $this->set($key);
     }
 
+    /**
+     * Get the API token in use
+     */
     public function get() : string
     {
         return $this->token;
     }
 
+    /**
+     * Set the API token to use
+     * @param $key
+     * @return ApiToken
+     */
     public function set(string $key) : ApiToken
     {
         $this->token = $key;
