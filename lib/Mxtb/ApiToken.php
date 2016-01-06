@@ -11,9 +11,9 @@
  * @version dev
  */
 
-namespace Mxtb;
+declare(strict_types=1);
 
-use Doctrine\Instantiator\Exception\InvalidArgumentException;
+namespace Mxtb;
 
 class ApiToken
 {
@@ -23,34 +23,22 @@ class ApiToken
     private $token;
 
     /**
-     * @param string $key The API key to use
+     * ApiToken constructor.
+     * @param $key
      */
-    public function __construct($key)
+    public function __construct(string $key)
     {
         $this->set($key);
     }
 
-    /**
-     * Get the API key in use
-     *
-     * @return string
-     */
-    public function get()
+    public function get() : string
     {
         return $this->token;
     }
 
-    /**
-     * Set the API key to use
-     *
-     * @param string $key
-     */
-    public function set($key)
+    public function set(string $key) : ApiToken
     {
-        if (!is_string($key)) {
-            throw new InvalidArgumentException('API key must be of type string.');
-        }
-
         $this->token = $key;
+        return $this;
     }
 }
