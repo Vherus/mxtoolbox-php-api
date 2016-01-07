@@ -57,15 +57,13 @@ class MxToolbox
         ]);
     }
 
-    public function get()
+    /**
+     * Get the HTTP client
+     * @return Client
+     */
+    public function getClient() : Client
     {
-        $response = $this->httpClient->get('http://mxtoolbox.com/api/v1/lookup/dns/example.com', [
-            'headers' => [
-                'Accept' => 'application/json'
-            ]
-        ]);
-
-        return $response->getBody();
+        return $this->httpClient;
     }
 
     /**

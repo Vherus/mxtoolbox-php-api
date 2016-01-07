@@ -1,6 +1,6 @@
 {
-  "name": "mxtoolbox-php-api",
-  "description": "PHP wrapper for the MXTOOLBOX API.",
+  "name": "mxtoolbox-php/api",
+  "description": "PHP wrapper for the MxToolbox API that aims to offer all of the functionality available from the raw API.",
   "type": "library",
   "keywords": ["mxtoolbox", "mx", "api", "wrapper", "php", "dns"],
   "license": "MIT",
