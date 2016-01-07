@@ -13,30 +13,4 @@
 
 namespace Mxtb\Model\Lookup\Blacklist;
 
-use Mxtb\Model\Lookup\AbstractResponse;
-
-class PassedResponse extends AbstractResponse
-{
-    /**
-     * @var string|null
-     */
-    private $blacklistResponseTime;
-
-    /**
-     * @return null|string
-     */
-    public function getBlacklistResponseTime() : string
-    {
-        return $this->blacklistResponseTime;
-    }
-
-    /**
-     * @param null|string $blacklistResponseTime
-     * @return PassedResponse
-     */
-    public function setBlacklistResponseTime(string $blacklistResponseTime) : PassedResponse
-    {
-        $this->blacklistResponseTime = $blacklistResponseTime;
-        return $this;
-    }
-}
+class PassedResponse extends BlacklistResponse { }
