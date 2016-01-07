@@ -49,7 +49,8 @@ class MxToolbox
         $this->apiToken = $apiToken;
 
         $this->httpClient = new Client([
-            'base_uri' => $this->getURL($secure)
+            'base_uri' => $this->getURL($secure),
+            'headers' => ['Authorization' => $this->apiToken->get()]
         ]);
     }
 
