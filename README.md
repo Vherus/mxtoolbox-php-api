@@ -18,6 +18,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Credits
 
 - [Nathan King](mailto:nkvherus@gmail.com)
+- [Darien Livermore](mailto:daz.livermore@hotmail.com)
 
 
 ## License
