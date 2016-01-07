@@ -33,12 +33,12 @@ class MxToolboxTest extends \PHPUnit_Framework_TestCase
     public function testCanSetApiToken()
     {
         // Arrange
-        $mxtb = new MxToolbox();
+        $mxtb = new MxToolbox(new ApiToken('test-token'));
 
         // Act
-        $mxtb->setApiToken(new ApiToken('test-token'));
+        $token = $mxtb->getApiToken();
 
         // Assert
-        $this->assertNotNull($mxtb->getApiToken());
+        $this->assertNotNull($token);
     }
 }

@@ -44,7 +44,7 @@ class MxToolbox
      * @param ApiToken|null $apiToken
      * @param $secure
      */
-    public function __construct(ApiToken $apiToken = null, bool $secure = true)
+    public function __construct(ApiToken $apiToken, bool $secure = true)
     {
         $this->apiToken = $apiToken;
 
