@@ -64,4 +64,41 @@ class Lookup
      * @var bool
      */
     private $hasSubscriptions;
+
+    /**
+     * @var AbstractResponse[]
+     */
+    private $failed;
+
+    /**
+     * @var AbstractResponse[]
+     */
+    private $warnings;
+
+    /**
+     * @var AbstractResponse[]
+     */
+    private $passed;
+
+    private $errors;
+
+    private $information;
+
+    private $multiInformation;
+
+    /**
+     * @var bool
+     */
+    private $isBruteForce;
+
+    private $transcript;
+
+    /**
+     * @var int
+     */
+    private $mxRep;
+
+    private $emailServiceProvider;
+
+    private $relatedLookups;
 }
