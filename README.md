@@ -9,10 +9,6 @@ Influenced by Michael Roterman's TMDB PHP API Wrapper (https://github.com/php-tm
 
 This project (currently in early development) aims to provide a PHP wrapper for the MxToolbox API and all it has to offer.
 
-* [Contact](mailto:nkvherus@gmail.com)
-* [Github](https://github.com/Vherus/mxtoolbox-php-api)
-* [License](LICENSE.txt)
-
 
 ## Contributing
 
