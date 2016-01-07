@@ -87,7 +87,7 @@ class MxToolbox
      * @param bool $secure
      * @return string
      */
-    private function getURL(bool $secure = true)
+    private function getURL(bool $secure = true) : string
     {
         return (($secure) ? self::SCHEMA_SECURE : self::SCHEMA_INSECURE) . '://' . self::MTXB_URI . self::VERSION . '/';
     }

@@ -10,6 +10,22 @@ Influenced by Michael Roterman's TMDB PHP API Wrapper (https://github.com/php-tm
 This project (currently in early development) aims to provide a PHP wrapper for the MxToolbox API and all it has to offer.
 
 
+## Getting Started
+
+Start by constructing your MxToolbox client
+
+```php
+$apiKey = new \Mxtb\ApiToken('your-api-key');
+$mxtb = new \Mxtb\MxToolbox($apiKey);
+```
+
+By default, the wrapper is set to use HTTPS. To use HTTP, provide false as the second parameter during construction
+
+```php
+$mxtb = new \Mxtb\MxToolbox($apiKey, false);
+```
+
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
