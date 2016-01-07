@@ -14,30 +14,31 @@
 namespace Mxtb\Tests;
 
 use Mxtb\ApiToken;
+use Mxtb\MxToolbox;
 
-class ApiTokenTest extends \PHPUnit_Framework_TestCase
+class MxToolboxTest extends \PHPUnit_Framework_TestCase
 {
-    public function testCanSetApiKey()
+    public function testGetApiTokenReturnsApiToken()
     {
         // Arrange
-        $token = new ApiToken('test-token');
+        $mxtb = new MxToolbox(new ApiToken('test-token'));
 
         // Act
-        $token->set('new-token');
+        $token = $mxtb->getApiToken();
 
         // Assert
-        $this->assertEquals('new-token', $token->get());
+        $this->assertInstanceOf(ApiToken::class, $token);
     }
 
-    public function testApiKeyIsString()
+    public function testCanSetApiToken()
     {
         // Arrange
-        $token = new ApiToken('test-token');
+        $mxtb = new MxToolbox();
 
         // Act
-        $tokenValue = $token->get();
+        $mxtb->setApiToken(new ApiToken('test-token'));
 
         // Assert
-        $this->assertTrue(is_string($tokenValue));
+        $this->assertNotNull($mxtb->getApiToken());
     }
 }
