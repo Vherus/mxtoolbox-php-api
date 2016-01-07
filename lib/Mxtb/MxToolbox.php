@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * This file is part of the core PHP package for mxtoolbox-api-wrapper.
@@ -10,8 +10,6 @@
  * @author Nathan King <nkvherus@gmail.com>
  * @version dev
  */
-
-declare(strict_types=1);
 
 namespace Mxtb;
 
@@ -57,6 +55,17 @@ class MxToolbox
                 'version' => self::VERSION
             ]]
         ]);
+    }
+
+    public function get()
+    {
+        $response = $this->httpClient->get('http://mxtoolbox.com/api/v1/lookup/dns/example.com', [
+            'headers' => [
+                'Accept' => 'application/json'
+            ]
+        ]);
+
+        return $response->getBody();
     }
 
     /**

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * This file is part of the core PHP package for mxtoolbox-api-wrapper.
@@ -10,8 +10,6 @@
  * @author Nathan King <nkvherus@gmail.com>
  * @version dev
  */
-
-declare(strict_types=1);
 
 namespace Mxtb\Model\Common;
 
