@@ -9,7 +9,7 @@ I accept contributions via Pull Requests on [Github](https://github.com/Vherus/m
 
 - **Document any change in behaviour** - Make sure the [README](README.md) and any other relevant documentation are kept up-to-date.
 
-- **Everything must have an associated unit test** - Please ensure everything has passing unit tests before committing
+- **Everything must have an associated unit test** - Please ensure everything has passing unit tests before committing.
 
 - **Create topic branches** - Don't ask me to pull from your master branch.
 
