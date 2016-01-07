@@ -21,7 +21,7 @@ class MxToolbox
     const VERSION = 'v1';
 
     /** Base API URI */
-    const MTXB_URI = 'mxtoolbox.com/api';
+    const MTXB_URI = 'mxtoolbox.com/api/';
 
     /** Insecure schema */
     const SCHEMA_INSECURE = 'http';
@@ -49,11 +49,7 @@ class MxToolbox
         $this->apiToken = $apiToken;
 
         $this->httpClient = new Client([
-            'base_url'  =>  ['{schema}://{uri}/{version}', [
-                'schema' => ($secure) ? self::SCHEMA_SECURE : self::SCHEMA_INSECURE,
-                'uri' => self::MTXB_URI,
-                'version' => self::VERSION
-            ]]
+            'base_uri' => $this->getURL($secure)
         ]);
     }
 
@@ -84,5 +80,14 @@ class MxToolbox
     public function getApiToken() : ApiToken
     {
         return $this->apiToken;
+    }
+
+    /**
+     * @param bool $secure
+     * @return string
+     */
+    private function getURL(bool $secure = true)
+    {
+        return (($secure) ? self::SCHEMA_SECURE : self::SCHEMA_INSECURE) . '://' . self::MTXB_URI . self::VERSION . '/';
     }
 }
