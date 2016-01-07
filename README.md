@@ -19,7 +19,7 @@ $apiKey = new \Mxtb\ApiToken('your-api-key');
 $mxtb = new \Mxtb\MxToolbox($apiKey);
 ```
 
-By default, the wrapper is set to use HTTPS. To use HTTP, provide false as the second parameter during construction
+The wrapper is set to use HTTPS by default. Passing false as an optional second parameter during construction will enforce the use of HTTP
 
 ```php
 $mxtb = new \Mxtb\MxToolbox($apiKey, false);
