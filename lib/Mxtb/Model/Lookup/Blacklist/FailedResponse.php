@@ -13,7 +13,7 @@
 
 namespace Mxtb\Model\Lookup\Blacklist;
 
-class FailedResponse extends BlacklistResponse
+class FailedResponse extends AbstractBlacklistResponse
 {
     /**
      * @var string

@@ -13,4 +13,4 @@
 
 namespace Mxtb\Model\Lookup\Blacklist;
 
-class PassedResponse extends BlacklistResponse { }
+class PassedResponse extends AbstractBlacklistResponse { }
