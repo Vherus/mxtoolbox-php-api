@@ -31,7 +31,7 @@ abstract class AbstractInformationResponse
     /**
      * @param string|null $type
      */
-    public function setType(int $type) : AbstractInformationResponse
+    public function setType(string $type) : AbstractInformationResponse
     {
         $this->type = $type;
         return $this;
