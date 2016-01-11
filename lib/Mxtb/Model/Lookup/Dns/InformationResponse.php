@@ -20,42 +20,42 @@ class InformationResponse extends AbstractInformationResponse
     /**
      * @var string|null
      */
-    protected $domainName;
+    private $domainName;
 
     /**
      * @var string|null
      */
-    protected $ipAddress;
+    private $ipAddress;
 
     /**
      * @var string|null
      */
-    protected $ttl;
+    private $ttl;
 
     /**
      * @var string|null
      */
-    protected $status;
+    private $status;
 
     /**
      * @var string|null
      */
-    protected $time;
+    private $time;
 
     /**
      * @var string|null
      */
-    protected $auth;
+    private $auth;
 
     /**
      * @var string|null
      */
-    protected $parent;
+    private $parent;
 
     /**
      * @var string|null
      */
-    protected $local;
+    private $local;
 
     /**
      * @return null|string

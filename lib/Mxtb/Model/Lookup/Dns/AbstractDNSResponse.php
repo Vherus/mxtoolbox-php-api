@@ -15,17 +15,17 @@ namespace Mxtb\Model\Lookup\Dns;
 
 use Mxtb\Model\Lookup\AbstractResponse;
 
-class AbstractDNSResponse extends AbstractResponse
+abstract class AbstractDNSResponse extends AbstractResponse
 {
     /**
      * @var string
      */
-    private $info;
+    protected $info;
 	
     /**
      * @var string
      */
-    private $additionalInfo = [];
+    protected $additionalInfo = [];
 	
     /**
      * @return string|null
