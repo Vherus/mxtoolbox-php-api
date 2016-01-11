@@ -40,7 +40,7 @@ abstract class AbstractApi
      */
     public function get(string $path, array $headers = [])
     {
-        $response = $this->client->get($path, $headers);
+        $response = $this->client->get($path, $headers)->getBody();
 
         return $this->decode($response);
     }
