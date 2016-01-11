@@ -14,6 +14,7 @@
 namespace Mxtb\Api;
 
 use GuzzleHttp\Client;
+use JMS\Serializer\Serializer;
 use Mxtb\MxToolbox;
 
 abstract class AbstractApi
@@ -22,6 +23,11 @@ abstract class AbstractApi
      * @var Client
      */
     protected $client;
+
+    /**
+     * @var Serializer
+     */
+    protected $serializer;
 
     /**
      * AbstractApi constructor
@@ -50,8 +56,18 @@ abstract class AbstractApi
      * @param $response
      * @return mixed
      */
-    public function decode($response)
+    private function decode($response)
     {
         return is_string($response) ? json_decode($response, true) : $response;
+    }
+
+    /**
+     * @param $jsonData
+     * @param string $class
+     * @return array|\JMS\Serializer\scalar|mixed|object
+     */
+    protected function deserialize($jsonData, string $class)
+    {
+        return $this->serializer->deserialize($jsonData, $class, 'json');
     }
 }

@@ -13,25 +13,37 @@
 
 namespace Mxtb\Model\Lookup;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 abstract class AbstractResponse
 {
     /**
-     * @var int|null
+     * @Type("integer")
+     * @SerializedName("ID")
+     * @Accessor(getter="getId",setter="setId")
      */
     protected $id;
 
     /**
-     * @var string|null
+     * @Type("string")
+     * @SerializedName("Name")
+     * @Accessor(getter="getName",setter="setName")
      */
     protected $name;
 
     /**
-     * @var string|null
+     * @Type("string")
+     * @SerializedName("Url")
+     * @Accessor(getter="getUrl",setter="setUrl")
      */
     protected $url;
 
     /**
-     * @var string|null
+     * @Type("string")
+     * @SerializedName("DelistUrl")
+     * @Accessor(getter="getDelistUrl",setter="setDelistUrl")
      */
     protected $delistUrl;
 

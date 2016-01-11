@@ -14,6 +14,8 @@
 namespace Mxtb;
 
 use GuzzleHttp\Client;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
 
 class MxToolbox
 {
@@ -35,6 +37,11 @@ class MxToolbox
     private $httpClient;
 
     /**
+     * @var Serializer
+     */
+    private $serializer;
+
+    /**
      * @var ApiToken
      */
     private $apiToken;
@@ -52,6 +59,10 @@ class MxToolbox
             'base_uri' => $this->getURL($secure),
             'headers' => ['Authorization' => $this->apiToken->get()]
         ]);
+
+        $this->buildAnnotationRegistry();
+
+        $this->serializer = $serializer = SerializerBuilder::create()->build();
     }
 
     /**
@@ -90,5 +101,13 @@ class MxToolbox
     private function getURL(bool $secure = true) : string
     {
         return (($secure) ? self::SCHEMA_SECURE : self::SCHEMA_INSECURE) . '://' . self::MTXB_URI . self::VERSION . '/';
+    }
+
+    /**
+     * Construct annotations registry for JMS Serializer
+     */
+    private function buildAnnotationRegistry()
+    {
+        \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
     }
 }
