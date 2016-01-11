@@ -28,7 +28,7 @@ class PassedResponseTest extends \PHPUnit_Framework_TestCase
         $response->setInfo('test info');
         $response->setUrl('test info');
         $response->setDelistUrl('test info');
-        $response->setAdditionalInfo('key', 'test info');
+        $response->setAdditionalInfo(['test info', 'more info']);
 
         // Assert
         $this->assertEquals(1234, $response->getId());
@@ -36,7 +36,7 @@ class PassedResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('test info', $response->getInfo());
         $this->assertEquals('test info', $response->getUrl());
         $this->assertEquals('test info', $response->getDelistUrl());
-        $this->assertEquals('test info', $response->getAdditionalInfo('key'));
-        $this->assertEquals('test info', $response->getAdditionalInfoArray()['key']);
+        $this->assertEquals('test info', $response->getAdditionalInfo(0));
+        $this->assertEquals('test info', $response->getAdditionalInfoArray()[0]);
     }
 }

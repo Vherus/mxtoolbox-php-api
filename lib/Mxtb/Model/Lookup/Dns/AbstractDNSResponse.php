@@ -55,7 +55,7 @@ class AbstractDNSResponse extends AbstractResponse
     /**
      * @return string|null
      */
-    public function getAdditionalInfo(string $key) : string
+    public function getAdditionalInfo(int $key) : string
     {
         return $this->additionalInfo[$key];
     }
@@ -63,9 +63,9 @@ class AbstractDNSResponse extends AbstractResponse
     /**
      * @param string|null $additionalInfo
      */
-    public function setAdditionalInfo(string $key, string $info) : AbstractDNSResponse
+    public function setAdditionalInfo(array $additionalInfo = []) : AbstractDNSResponse
     {
-        $this->additionalInfo[$key] = $info;
+        $this->additionalInfo = $additionalInfo;
         return $this;
     }
 }
