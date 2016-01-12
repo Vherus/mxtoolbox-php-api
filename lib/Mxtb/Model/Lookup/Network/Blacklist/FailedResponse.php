@@ -16,17 +16,23 @@ namespace Mxtb\Model\Lookup\Network\Blacklist;
 class FailedResponse extends AbstractBlacklistResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     private $info;
 
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("BlacklistTTL")
+     * @Accessor(getter="getBlacklistTTL",setter="setBlacklistTTL")
      */
     private $blacklistTTL;
 
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("BlacklistReasonCode")
+     * @Accessor(getter="getBlacklistReasonCode",setter="setBlacklistReasonCode")
      */
     private $blacklistReasonCode;
 

@@ -19,7 +19,9 @@ use Mxtb\Model\Lookup\AbstractResponse;
 abstract class AbstractBlacklistResponse extends AbstractResponse
 {
     /**
-     * @var string|null
+     * @Type("string")
+     * @SerializedName("BlacklistResponseTime")
+     * @Accessor(getter="getBlacklistResponseTime",setter="setBlacklistResponseTime")
      */
     protected $blacklistResponseTime;
 
