@@ -41,9 +41,9 @@ class FailedResponse extends AbstractBlacklistResponse
     private $blacklistReasonCode;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getInfo() : string
+    public function getInfo()
     {
         return $this->info;
     }
@@ -52,7 +52,7 @@ class FailedResponse extends AbstractBlacklistResponse
      * @param string $info
      * @return FailedResponse
      */
-    public function setInfo(string $info) : FailedResponse
+    public function setInfo(string $info = null) : FailedResponse
     {
         $this->info = $info;
         return $this;
@@ -61,7 +61,7 @@ class FailedResponse extends AbstractBlacklistResponse
     /**
      * @return string
      */
-    public function getBlacklistTTL() : string
+    public function getBlacklistTTL()
     {
         return $this->blacklistTTL;
     }
@@ -70,7 +70,7 @@ class FailedResponse extends AbstractBlacklistResponse
      * @param string $blacklistTTL
      * @return FailedResponse
      */
-    public function setBlacklistTTL(string $blacklistTTL) : FailedResponse
+    public function setBlacklistTTL(string $blacklistTTL = null) : FailedResponse
     {
         $this->blacklistTTL = $blacklistTTL;
         return $this;
@@ -79,7 +79,7 @@ class FailedResponse extends AbstractBlacklistResponse
     /**
      * @return string
      */
-    public function getBlacklistReasonCode() : string
+    public function getBlacklistReasonCode()
     {
         return $this->blacklistReasonCode;
     }
@@ -88,7 +88,7 @@ class FailedResponse extends AbstractBlacklistResponse
      * @param string $blacklistReasonCode
      * @return FailedResponse
      */
-    public function setBlacklistReasonCode(string $blacklistReasonCode) : FailedResponse
+    public function setBlacklistReasonCode(string $blacklistReasonCode = null) : FailedResponse
     {
         $this->blacklistReasonCode = $blacklistReasonCode;
         return $this;

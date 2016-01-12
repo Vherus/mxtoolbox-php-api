@@ -27,22 +27,20 @@ class InformationResponse
     private $dnsResolution;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDnsResolution() : string
+    public function getDnsResolution()
     {
         return $this->dnsResolution;
     }
 
     /**
-     * @param mixed $dnsResolution
+     * @param string|null $dnsResolution
      * @return InformationResponse
      */
-    public function setDnsResolution(string $dnsResolution) : InformationResponse
+    public function setDnsResolution(string $dnsResolution = null) : InformationResponse
     {
         $this->dnsResolution = $dnsResolution;
         return $this;
     }
-
-
 }

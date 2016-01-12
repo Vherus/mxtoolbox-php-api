@@ -50,7 +50,7 @@ abstract class AbstractResponse
     /**
      * @return int|null
      */
-    public function getId() : int
+    public function getId()
     {
         return $this->id;
     }
@@ -58,58 +58,58 @@ abstract class AbstractResponse
     /**
      * @param int|null $id
      */
-    public function setId(int $id) : AbstractResponse
+    public function setId(int $id = null) : AbstractResponse
     {
         $this->id = $id;
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getName() : string
+    public function getName()
     {
         return $this->name;
     }
 
     /**
-     * @param null|string $name
+     * @param string|null $name
      */
-    public function setName(string $name) : AbstractResponse
+    public function setName(string $name = null) : AbstractResponse
     {
         $this->name = $name;
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getUrl() : string
+    public function getUrl()
     {
         return $this->url;
     }
 
     /**
-     * @param null|string $url
+     * @param string|null $url
      */
-    public function setUrl(string $url) : AbstractResponse
+    public function setUrl(string $url = null) : AbstractResponse
     {
         $this->url = $url;
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getDelistUrl() : string
+    public function getDelistUrl()
     {
         return $this->delistUrl;
     }
 
     /**
-     * @param null|string $delistUrl
+     * @param string|null $delistUrl
      */
-    public function setDelistUrl(string $delistUrl) : AbstractResponse
+    public function setDelistUrl(string $delistUrl = null) : AbstractResponse
     {
         $this->delistUrl = $delistUrl;
         return $this;

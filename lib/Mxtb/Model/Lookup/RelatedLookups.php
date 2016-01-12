@@ -48,72 +48,72 @@ class RelatedLookups
     private $commandArgument;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName() : string
+    public function getName()
     {
         return $this->name;
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return RelatedLookups
      */
-    public function setName(string $name) : RelatedLookups
+    public function setName(string $name = null) : RelatedLookups
     {
         $this->name = $name;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUrl() : string
+    public function getUrl()
     {
         return $this->url;
     }
 
     /**
-     * @param string $url
+     * @param string|null $url
      * @return RelatedLookups
      */
-    public function setUrl(string $url) : RelatedLookups
+    public function setUrl(string $url = null) : RelatedLookups
     {
         $this->url = $url;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCommand() : string
+    public function getCommand()
     {
         return $this->command;
     }
 
     /**
-     * @param string $command
+     * @param string|null $command
      * @return RelatedLookups
      */
-    public function setCommand(string $command) : RelatedLookups
+    public function setCommand(string $command = null) : RelatedLookups
     {
         $this->command = $command;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCommandArgument() : string
+    public function getCommandArgument()
     {
         return $this->commandArgument;
     }
 
     /**
-     * @param string $commandArgument
+     * @param string|null $commandArgument
      * @return RelatedLookups
      */
-    public function setCommandArgument(string $commandArgument) : RelatedLookups
+    public function setCommandArgument(string $commandArgument = null) : RelatedLookups
     {
         $this->commandArgument = $commandArgument;
         return $this;

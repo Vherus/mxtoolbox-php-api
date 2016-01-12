@@ -14,6 +14,9 @@
 
 namespace Mxtb\Model\Lookup\Network\Blacklist;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
 use Mxtb\Model\Lookup\AbstractResponse;
 
 abstract class AbstractBlacklistResponse extends AbstractResponse
@@ -26,9 +29,9 @@ abstract class AbstractBlacklistResponse extends AbstractResponse
     protected $blacklistResponseTime;
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getBlacklistResponseTime() : string
+    public function getBlacklistResponseTime()
     {
         return $this->blacklistResponseTime;
     }
@@ -37,7 +40,7 @@ abstract class AbstractBlacklistResponse extends AbstractResponse
      * @param null|string $blacklistResponseTime
      * @return AbstractBlacklistResponse
      */
-    public function setBlacklistResponseTime(string $blacklistResponseTime) : AbstractBlacklistResponse
+    public function setBlacklistResponseTime(string $blacklistResponseTime = null) : AbstractBlacklistResponse
     {
         $this->blacklistResponseTime = $blacklistResponseTime;
         return $this;

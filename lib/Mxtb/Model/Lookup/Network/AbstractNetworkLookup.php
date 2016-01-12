@@ -17,23 +17,29 @@ use Mxtb\Model\Lookup\AbstractLookup;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
-use Mxtb\Model\Lookup\Network\TranscriptResponse;
 
-class AbstractNetworkLookup extends AbstractLookup
+abstract class AbstractNetworkLookup extends AbstractLookup
 {
     /**
-     * @Type(""array<TranscriptResponse>"")
+     * @Type("array<Mxtb\Model\Lookup\Network\TranscriptResponse>")
      * @SerializedName("Transcript")
      * @Accessor(getter="getTranscript",setter="setTranscript")
      */
-    private $transcript;
+    protected $transcript;
 
+    /**
+     * @return TranscriptResponse[]|null
+     */
     public function getTranscript()
     {
         return $this->transcript;
     }
 
-    public function setTranscript($transcript)
+    /**
+     * @param array|null $transcript
+     * @return $this
+     */
+    public function setTranscript(array $transcript = null) : AbstractNetworkLookup
     {
         $this->transcript = $transcript;
         return $this;

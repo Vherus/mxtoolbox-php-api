@@ -22,16 +22,52 @@ use Mxtb\Model\Lookup\Network\Blacklist\PassedResponse;
 class Blacklist extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<FailedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
      */
     private $failed;
 
     /**
-     * @Type("array<PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
+
+    /**
+     * @return FailedResponse[]|null
+     */
+    public function getFailed()
+    {
+        return $this->failed;
+    }
+
+    /**
+     * @param FailedResponse[]|null $failed
+     * @return Blacklist
+     */
+    public function setFailed(array $failed = null) : Blacklist
+    {
+        $this->failed = $failed;
+        return $this;
+    }
+
+    /**
+     * @return PassedResponse[]|null
+     */
+    public function getPassed()
+    {
+        return $this->passed;
+    }
+
+    /**
+     * @param PassedResponse[]|null $passed
+     * @return Blacklist
+     */
+    public function setPassed(array $passed = null) : Blacklist
+    {
+        $this->passed = $passed;
+        return $this;
+    }
 }

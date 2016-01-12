@@ -27,17 +27,17 @@ class TimeoutResponse extends AbstractResponse
     private $info;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getInfo() : string
+    public function getInfo()
     {
         return $this->info;
     }
 
     /**
-     * @param string $info
+     * @param string|null $info
      */
-    public function setInfo(string $info) : TimeoutResponse
+    public function setInfo(string $info = null) : TimeoutResponse
     {
         $this->info = $info;
         return $this;

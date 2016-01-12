@@ -29,7 +29,7 @@ class TranscriptResponse
     /**
      * @return string|null
      */
-    public function getTranscript() : string
+    public function getTranscript()
     {
         return $this->transcript;
     }
@@ -37,7 +37,7 @@ class TranscriptResponse
     /**
      * @param string|null $transcript
      */
-    public function setTranscript(string $transcript) : TranscriptResponse
+    public function setTranscript(string $transcript = null) : TranscriptResponse
     {
         $this->transcript = $transcript;
         return $this;

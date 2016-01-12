@@ -113,21 +113,21 @@ abstract class AbstractLookup
     protected $emailServiceProvider;
 
     /**
-     * @Type("array<RelatedLookups>")
+     * @Type("array<Mxtb\Model\Lookup\RelatedLookups>")
      * @SerializedName("RelatedLookups")
      * @Accessor(getter="getRelatedLookups",setter="setRelatedLookups")
      */
     protected $relatedLookups;
 
     /**
-     * @Type("array<TimeoutResponse>")
+     * @Type("array<Mxtb\Model\Lookup\TimeoutResponse>")
      * @SerializedName("Timeouts")
      * @Accessor(getter="getTimeouts",setter="setTimeouts")
      */
     protected $timeouts;
 
     /**
-     * @return mixed
+     * @return string|null
      */
     public function getUid()
     {
@@ -135,17 +135,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param mixed $uid
+     * @param string|null $uid
      * @return AbstractLookup
      */
-    public function setUid($uid)
+    public function setUid(string $uid = null) : AbstractLookup
     {
         $this->uid = $uid;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
     public function getCommand()
     {
@@ -153,17 +153,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param mixed $command
+     * @param string|null $command
      * @return AbstractLookup
      */
-    public function setCommand($command)
+    public function setCommand(string $command = null) : AbstractLookup
     {
         $this->command = $command;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function getIsTransitioned()
     {
@@ -171,17 +171,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param mixed $isTransitioned
+     * @param bool $isTransitioned
      * @return AbstractLookup
      */
-    public function setIsTransitioned($isTransitioned)
+    public function setIsTransitioned(bool $isTransitioned) : AbstractLookup
     {
         $this->isTransitioned = $isTransitioned;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCommandArgument()
     {
@@ -189,17 +189,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param string $commandArgument
+     * @param string|null $commandArgument
      * @return AbstractLookup
      */
-    public function setCommandArgument($commandArgument)
+    public function setCommandArgument(string $commandArgument = null) : AbstractLookup
     {
         $this->commandArgument = $commandArgument;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getTimeRecorded()
     {
@@ -207,17 +207,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param string $timeRecorded
+     * @param string|null $timeRecorded
      * @return AbstractLookup
      */
-    public function setTimeRecorded($timeRecorded)
+    public function setTimeRecorded(string $timeRecorded = null) : AbstractLookup
     {
         $this->timeRecorded = $timeRecorded;
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getReportingNameServer()
     {
@@ -225,17 +225,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param null|string $reportingNameServer
+     * @param string|null $reportingNameServer
      * @return AbstractLookup
      */
-    public function setReportingNameServer($reportingNameServer)
+    public function setReportingNameServer(string $reportingNameServer = null) : AbstractLookup
     {
         $this->reportingNameServer = $reportingNameServer;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getTimeToComplete()
     {
@@ -243,17 +243,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param string $timeToComplete
+     * @param string|null $timeToComplete
      * @return AbstractLookup
      */
-    public function setTimeToComplete($timeToComplete)
+    public function setTimeToComplete(string $timeToComplete = null) : AbstractLookup
     {
         $this->timeToComplete = $timeToComplete;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getRelatedIP()
     {
@@ -261,10 +261,10 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param string $relatedIP
+     * @param string|null $relatedIP
      * @return AbstractLookup
      */
-    public function setRelatedIP($relatedIP)
+    public function setRelatedIP(string $relatedIP = null) : AbstractLookup
     {
         $this->relatedIP = $relatedIP;
         return $this;
@@ -273,7 +273,7 @@ abstract class AbstractLookup
     /**
      * @return boolean
      */
-    public function isIsEndpoint()
+    public function getIsEndpoint() : bool
     {
         return $this->isEndpoint;
     }
@@ -282,7 +282,7 @@ abstract class AbstractLookup
      * @param boolean $isEndpoint
      * @return AbstractLookup
      */
-    public function setIsEndpoint($isEndpoint)
+    public function setIsEndpoint(bool $isEndpoint) : AbstractLookup
     {
         $this->isEndpoint = $isEndpoint;
         return $this;
@@ -291,7 +291,7 @@ abstract class AbstractLookup
     /**
      * @return boolean
      */
-    public function isHasSubscriptions()
+    public function getHasSubscriptions() : bool
     {
         return $this->hasSubscriptions;
     }
@@ -300,7 +300,7 @@ abstract class AbstractLookup
      * @param boolean $hasSubscriptions
      * @return AbstractLookup
      */
-    public function setHasSubscriptions($hasSubscriptions)
+    public function setHasSubscriptions(bool $hasSubscriptions) : AbstractLookup
     {
         $this->hasSubscriptions = $hasSubscriptions;
         return $this;
@@ -309,7 +309,7 @@ abstract class AbstractLookup
     /**
      * @return boolean
      */
-    public function isIsBruteForce()
+    public function getIsBruteForce() : bool
     {
         return $this->isBruteForce;
     }
@@ -318,14 +318,14 @@ abstract class AbstractLookup
      * @param boolean $isBruteForce
      * @return AbstractLookup
      */
-    public function setIsBruteForce($isBruteForce)
+    public function setIsBruteForce(bool $isBruteForce) : AbstractLookup
     {
         $this->isBruteForce = $isBruteForce;
         return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getMxRep()
     {
@@ -333,17 +333,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param int $mxRep
+     * @param int|null $mxRep
      * @return AbstractLookup
      */
-    public function setMxRep($mxRep)
+    public function setMxRep(int $mxRep = null) : AbstractLookup
     {
         $this->mxRep = $mxRep;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
     public function getEmailServiceProvider()
     {
@@ -351,17 +351,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param mixed $emailServiceProvider
+     * @param string|null $emailServiceProvider
      * @return AbstractLookup
      */
-    public function setEmailServiceProvider($emailServiceProvider)
+    public function setEmailServiceProvider(string $emailServiceProvider = null) : AbstractLookup
     {
         $this->emailServiceProvider = $emailServiceProvider;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return RelatedLookups[]|null
      */
     public function getRelatedLookups()
     {
@@ -369,17 +369,17 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param mixed $relatedLookups
+     * @param RelatedLookups[]|null $relatedLookups
      * @return AbstractLookup
      */
-    public function setRelatedLookups($relatedLookups)
+    public function setRelatedLookups(array $relatedLookups = null) : AbstractLookup
     {
         $this->relatedLookups = $relatedLookups;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return TimeoutResponse[]|null
      */
     public function getTimeouts()
     {
@@ -387,10 +387,10 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param mixed $relatedLookups
+     * @param TimeoutResponse[]|null $timeouts
      * @return AbstractLookup
      */
-    public function setTimeouts($timeouts)
+    public function setTimeouts(array $timeouts = null) : AbstractLookup
     {
         $this->timeouts = $timeouts;
         return $this;
