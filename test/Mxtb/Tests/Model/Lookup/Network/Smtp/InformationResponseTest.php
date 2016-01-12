@@ -11,9 +11,9 @@
  * @version dev
  */
 
-namespace Mxtb\Tests\Model\Lookup\Network\Blacklist;
+namespace Mxtb\Tests\Model\Lookup\Network\Smtp;
 
-use Mxtb\Model\Lookup\Network\Blacklist\InformationResponse;
+use Mxtb\Model\Lookup\Network\Smtp\InformationResponse;
 
 class InformationResponseTest extends \PHPUnit_Framework_TestCase
 {

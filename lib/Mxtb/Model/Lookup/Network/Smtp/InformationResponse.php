@@ -11,7 +11,7 @@
  * @version dev
  */
  
-namespace Mxtb\Model\Lookup\Network\Blacklist;
+namespace Mxtb\Model\Lookup\Network\Smtp;
 
 class InformationResponse
 {
