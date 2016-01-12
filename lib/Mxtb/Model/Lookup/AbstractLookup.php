@@ -110,7 +110,19 @@ abstract class AbstractLookup
      */
     protected $emailServiceProvider;
 
+    /**
+     * @Type("array<Mxtb\Model\Lookup\RelatedLookups>")
+     * @SerializedName("RelatedLookups")
+     * @Accessor(getter="getRelatedLookups",setter="setRelatedLookups")
+     */
     protected $relatedLookups;
+
+    /**
+     * @Type("array<Mxtb\Model\Lookup\TimeoutResponse>")
+     * @SerializedName("Timeouts")
+     * @Accessor(getter="getTimeouts",setter="setTimeouts")
+     */
+    protected $timeouts;
 
     /**
      * @return mixed
@@ -361,6 +373,24 @@ abstract class AbstractLookup
     public function setRelatedLookups($relatedLookups)
     {
         $this->relatedLookups = $relatedLookups;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimeouts()
+    {
+        return $this->timeouts;
+    }
+
+    /**
+     * @param mixed $relatedLookups
+     * @return AbstractLookup
+     */
+    public function setTimeouts($timeouts)
+    {
+        $this->timeouts = $timeouts;
         return $this;
     }
 }
