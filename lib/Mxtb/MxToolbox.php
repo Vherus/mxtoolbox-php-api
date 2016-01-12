@@ -95,6 +95,14 @@ class MxToolbox
     }
 
     /**
+     * @return Serializer
+     */
+    public function getSerializer() : Serializer
+    {
+        return $this->serializer;
+    }
+
+    /**
      * @param bool $secure
      * @return string
      */

@@ -36,6 +36,7 @@ abstract class AbstractApi
     public function __construct(MxToolbox $mxToolbox)
     {
         $this->client = $mxToolbox->getClient();
+        $this->serializer = $mxToolbox->getSerializer();
     }
 
     /**
@@ -46,20 +47,9 @@ abstract class AbstractApi
      */
     public function get(string $path, array $headers = [])
     {
-        $response = $this->client->get($path, $headers)->getBody();
-        $responseString = (string) $response;
+        $response = $this->client->get($path, $headers)->getBody()->getContents();
 
-        return $responseString;
-    }
-
-    /**
-     * Decode the response to JSON
-     * @param $response
-     * @return mixed
-     */
-    private function decode($response)
-    {
-        return is_string($response) ? json_decode($response, true) : $response;
+        return $response;
     }
 
     /**
