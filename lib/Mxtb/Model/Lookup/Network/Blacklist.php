@@ -16,18 +16,20 @@ namespace Mxtb\Model\Lookup\Network;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
+use Mxtb\Model\Lookup\Network\Blacklist\FailedResponse;
+use Mxtb\Model\Lookup\Network\Blacklist\PassedResponse;
 
 class Blacklist extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\FailedResponse>")
+     * @Type("array<FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
      */
     private $failed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\PassedResponse>")
+     * @Type("array<PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */

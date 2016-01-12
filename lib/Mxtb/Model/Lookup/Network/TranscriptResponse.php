@@ -13,10 +13,16 @@
 
 namespace Mxtb\Model\Lookup\Network;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class TranscriptResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Transcript")
+     * @Accessor(getter="getTranscript",setter="setTranscript")
      */
     private $transcript;
 	

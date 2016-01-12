@@ -14,6 +14,7 @@
 namespace Mxtb\Api\Lookup;
 
 use Mxtb\Api\AbstractApi;
+use Mxtb\Model\Lookup\Network\Blacklist as BlacklistModel;
 
 class Blacklist extends AbstractApi
 {
@@ -27,6 +28,6 @@ class Blacklist extends AbstractApi
     {
         $json = $this->get('lookup/blacklist/' . $domain, $headers);
 
-        return $this->deserialize($json, 'Mxtb\Model\Lookup\Blacklist');
+        return $this->deserialize($json, BlacklistModel::class);
     }
 }

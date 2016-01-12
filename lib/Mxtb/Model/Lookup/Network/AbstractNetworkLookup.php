@@ -14,11 +14,15 @@
 namespace Mxtb\Model\Lookup\Network;
 
 use Mxtb\Model\Lookup\AbstractLookup;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+use Mxtb\Model\Lookup\Network\TranscriptResponse;
 
 class AbstractNetworkLookup extends AbstractLookup
 {
     /**
-     * @Type(""array<Mxtb\Model\Lookup\Network\TranscriptResponse>"")
+     * @Type(""array<TranscriptResponse>"")
      * @SerializedName("Transcript")
      * @Accessor(getter="getTranscript",setter="setTranscript")
      */
