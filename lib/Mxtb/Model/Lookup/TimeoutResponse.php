@@ -13,6 +13,10 @@
 
 namespace Mxtb\Model\Lookup;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class TimeoutResponse extends AbstractResponse
 {
     /**
