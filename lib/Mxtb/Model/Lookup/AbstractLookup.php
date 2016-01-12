@@ -17,116 +17,100 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 
-class Lookup
+abstract class AbstractLookup
 {
     /**
      * @Type("string")
      * @SerializedName("UID")
      * @Accessor(getter="getUid",setter="setUid")
      */
-    private $uid;
+    protected $uid;
 
     /**
      * @Type("string")
      * @SerializedName("Command")
      * @Accessor(getter="getCommand",setter="setCommand")
      */
-    private $command;
+    protected $command;
 
     /**
      * @Type("boolean")
      * @SerializedName("IsTransitioned")
      * @Accessor(getter="getIsTransitioned",setter="setIsTransitioned")
      */
-    private $isTransitioned;
+    protected $isTransitioned;
 
     /**
      * @Type("string")
      * @SerializedName("CommandArgument")
      * @Accessor(getter="getCommandArgument",setter="setCommandArgument")
      */
-    private $commandArgument;
+    protected $commandArgument;
 
     /**
      * @Type("string")
      * @SerializedName("TimeRecorded")
      * @Accessor(getter="getTimeRecorded",setter="setTimeRecorded")
      */
-    private $timeRecorded;
+    protected $timeRecorded;
 
     /**
      * @Type("string")
      * @SerializedName("ReportingNameServer")
      * @Accessor(getter="getReportingNameServer",setter="setReportingNameServer")
      */
-    private $reportingNameServer;
+    protected $reportingNameServer;
 
     /**
      * @Type("string")
      * @SerializedName("TimeToComplete")
      * @Accessor(getter="getTimeToComplete",setter="setTimeToComplete")
      */
-    private $timeToComplete;
+    protected $timeToComplete;
 
     /**
      * @Type("string")
      * @SerializedName("RelatedIP")
      * @Accessor(getter="getRelatedIp",setter="setRelatedIp")
      */
-    private $relatedIP;
+    protected $relatedIP;
 
     /**
      * @Type("boolean")
      * @SerializedName("IsEndpoint")
      * @Accessor(getter="getIsEndpoint",setter="setIsEndpoint")
      */
-    private $isEndpoint;
+    protected $isEndpoint;
 
     /**
      * @Type("boolean")
      * @SerializedName("HasSubscriptions")
      * @Accessor(getter="getHasSubscriptions",setter="setHasSubscriptions")
      */
-    private $hasSubscriptions;
+    protected $hasSubscriptions;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Blacklist\FailedResponse>")
-     * @SerializedName("Failed")
-     * @Accessor(getter="getFailed",setter="setFailed")
+     * @Type("boolean")
+     * @SerializedName("IsBruteForce")
+     * @Accessor(getter="getIsBruteForce",setter="setIsBruteForce")
      */
-    private $failed;
+    protected $isBruteForce;
 
     /**
-     * @var AbstractResponse[]
+     * @Type("integer")
+     * @SerializedName("MxRep")
+     * @Accessor(getter="getMxRep",setter="setMxRep")
      */
-    private $warnings;
+    protected $mxRep;
 
     /**
-     * @var AbstractResponse[]
+     * @Type("string")
+     * @SerializedName("EmailServiceProvider")
+     * @Accessor(getter="getEmailServiceProvider",setter="setEmailServiceProvider")
      */
-    private $passed;
+    protected $emailServiceProvider;
 
-    private $errors;
-
-    private $information;
-
-    private $multiInformation;
-
-    /**
-     * @var bool
-     */
-    private $isBruteForce;
-
-    private $transcript;
-
-    /**
-     * @var int
-     */
-    private $mxRep;
-
-    private $emailServiceProvider;
-
-    private $relatedLookups;
+    protected $relatedLookups;
 
     /**
      * @return mixed
@@ -138,7 +122,7 @@ class Lookup
 
     /**
      * @param mixed $uid
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setUid($uid)
     {
@@ -156,7 +140,7 @@ class Lookup
 
     /**
      * @param mixed $command
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setCommand($command)
     {
@@ -174,7 +158,7 @@ class Lookup
 
     /**
      * @param mixed $isTransitioned
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setIsTransitioned($isTransitioned)
     {
@@ -192,7 +176,7 @@ class Lookup
 
     /**
      * @param string $commandArgument
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setCommandArgument($commandArgument)
     {
@@ -210,7 +194,7 @@ class Lookup
 
     /**
      * @param string $timeRecorded
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setTimeRecorded($timeRecorded)
     {
@@ -228,7 +212,7 @@ class Lookup
 
     /**
      * @param null|string $reportingNameServer
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setReportingNameServer($reportingNameServer)
     {
@@ -246,7 +230,7 @@ class Lookup
 
     /**
      * @param string $timeToComplete
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setTimeToComplete($timeToComplete)
     {
@@ -264,7 +248,7 @@ class Lookup
 
     /**
      * @param string $relatedIP
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setRelatedIP($relatedIP)
     {
@@ -282,7 +266,7 @@ class Lookup
 
     /**
      * @param boolean $isEndpoint
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setIsEndpoint($isEndpoint)
     {
@@ -300,119 +284,11 @@ class Lookup
 
     /**
      * @param boolean $hasSubscriptions
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setHasSubscriptions($hasSubscriptions)
     {
         $this->hasSubscriptions = $hasSubscriptions;
-        return $this;
-    }
-
-    /**
-     * @return AbstractResponse[]
-     */
-    public function getFailed()
-    {
-        return $this->failed;
-    }
-
-    /**
-     * @param AbstractResponse[] $failed
-     * @return Lookup
-     */
-    public function setFailed($failed)
-    {
-        $this->failed = $failed;
-        return $this;
-    }
-
-    /**
-     * @return AbstractResponse[]
-     */
-    public function getWarnings()
-    {
-        return $this->warnings;
-    }
-
-    /**
-     * @param AbstractResponse[] $warnings
-     * @return Lookup
-     */
-    public function setWarnings($warnings)
-    {
-        $this->warnings = $warnings;
-        return $this;
-    }
-
-    /**
-     * @return AbstractResponse[]
-     */
-    public function getPassed()
-    {
-        return $this->passed;
-    }
-
-    /**
-     * @param AbstractResponse[] $passed
-     * @return Lookup
-     */
-    public function setPassed($passed)
-    {
-        $this->passed = $passed;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getErrors()
-    {
-        return $this->errors;
-    }
-
-    /**
-     * @param mixed $errors
-     * @return Lookup
-     */
-    public function setErrors($errors)
-    {
-        $this->errors = $errors;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInformation()
-    {
-        return $this->information;
-    }
-
-    /**
-     * @param mixed $information
-     * @return Lookup
-     */
-    public function setInformation($information)
-    {
-        $this->information = $information;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMultiInformation()
-    {
-        return $this->multiInformation;
-    }
-
-    /**
-     * @param mixed $multiInformation
-     * @return Lookup
-     */
-    public function setMultiInformation($multiInformation)
-    {
-        $this->multiInformation = $multiInformation;
         return $this;
     }
 
@@ -426,29 +302,11 @@ class Lookup
 
     /**
      * @param boolean $isBruteForce
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setIsBruteForce($isBruteForce)
     {
         $this->isBruteForce = $isBruteForce;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTranscript()
-    {
-        return $this->transcript;
-    }
-
-    /**
-     * @param mixed $transcript
-     * @return Lookup
-     */
-    public function setTranscript($transcript)
-    {
-        $this->transcript = $transcript;
         return $this;
     }
 
@@ -462,7 +320,7 @@ class Lookup
 
     /**
      * @param int $mxRep
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setMxRep($mxRep)
     {
@@ -480,7 +338,7 @@ class Lookup
 
     /**
      * @param mixed $emailServiceProvider
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setEmailServiceProvider($emailServiceProvider)
     {
@@ -498,7 +356,7 @@ class Lookup
 
     /**
      * @param mixed $relatedLookups
-     * @return Lookup
+     * @return AbstractLookup
      */
     public function setRelatedLookups($relatedLookups)
     {
