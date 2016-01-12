@@ -15,16 +15,16 @@ This project (currently in early development) aims to provide a PHP wrapper for 
 Start by constructing your MxToolbox client
 
 ```php
-$apiKey = new \Mxtb\ApiToken('your-api-key');
-$mxtb = new \Mxtb\MxToolbox($apiKey);
+$apiToken = new \Mxtb\ApiToken('your-api-key');
+$mxtb = new \Mxtb\MxToolbox($apiToken);
 ```
+If you want to use the "example.com" test domain provided by MxToolbox during development, pass an empty string to the ApiToken constructor.
 
-The wrapper is set to use HTTPS by default. Passing false as an optional second parameter during construction will enforce the use of HTTP
+The wrapper is set to use HTTPS by default. To force HTTP, pass false as an optional second parameter
 
 ```php
-$mxtb = new \Mxtb\MxToolbox($apiKey, false);
+$mxtb = new \Mxtb\MxToolbox($apiToken, false);
 ```
-
 
 ## Contributing
 
