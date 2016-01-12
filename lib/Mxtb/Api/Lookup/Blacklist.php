@@ -27,6 +27,6 @@ class Blacklist extends AbstractApi
     {
         $json = $this->get('lookup/blacklist/' . $domain, $headers);
 
-        return $this->deserialize($json, 'Mxtb\Model\Lookup');
+        return $this->deserialize($json, 'Mxtb\Model\Lookup\Blacklist');
     }
 }

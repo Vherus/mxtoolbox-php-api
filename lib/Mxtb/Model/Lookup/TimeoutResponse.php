@@ -16,7 +16,9 @@ namespace Mxtb\Model\Lookup;
 class TimeoutResponse extends AbstractResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     private $info;
 
