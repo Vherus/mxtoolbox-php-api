@@ -11,23 +11,23 @@
  * @copyright 2016 Nathan King (nkvherus@gmail.com)
  */
 
-namespace Mxtb\Model\Lookup;
+namespace Mxtb\Model\Lookup\Network;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 
-class Blacklist extends AbstractLookup
+class Blacklist extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Blacklist\FailedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
      */
     private $failed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Blacklist\PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */
