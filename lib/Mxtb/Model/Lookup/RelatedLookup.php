@@ -17,7 +17,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 
-class RelatedLookups
+class RelatedLookup
 {
     /**
      * @Type("string")
@@ -57,9 +57,9 @@ class RelatedLookups
 
     /**
      * @param string|null $name
-     * @return RelatedLookups
+     * @return RelatedLookup
      */
-    public function setName(string $name = null) : RelatedLookups
+    public function setName(string $name = null) : RelatedLookup
     {
         $this->name = $name;
         return $this;
@@ -75,9 +75,9 @@ class RelatedLookups
 
     /**
      * @param string|null $url
-     * @return RelatedLookups
+     * @return RelatedLookup
      */
-    public function setUrl(string $url = null) : RelatedLookups
+    public function setUrl(string $url = null) : RelatedLookup
     {
         $this->url = $url;
         return $this;
@@ -93,9 +93,9 @@ class RelatedLookups
 
     /**
      * @param string|null $command
-     * @return RelatedLookups
+     * @return RelatedLookup
      */
-    public function setCommand(string $command = null) : RelatedLookups
+    public function setCommand(string $command = null) : RelatedLookup
     {
         $this->command = $command;
         return $this;
@@ -111,9 +111,9 @@ class RelatedLookups
 
     /**
      * @param string|null $commandArgument
-     * @return RelatedLookups
+     * @return RelatedLookup
      */
-    public function setCommandArgument(string $commandArgument = null) : RelatedLookups
+    public function setCommandArgument(string $commandArgument = null) : RelatedLookup
     {
         $this->commandArgument = $commandArgument;
         return $this;

@@ -16,7 +16,7 @@ namespace Mxtb\Model\Lookup;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
-use Mxtb\Model\Lookup\RelatedLookups;
+use Mxtb\Model\Lookup\RelatedLookup;
 use Mxtb\Model\Lookup\TimeoutResponse;
 
 abstract class AbstractLookup
@@ -113,7 +113,7 @@ abstract class AbstractLookup
     protected $emailServiceProvider;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\RelatedLookups>")
+     * @Type("array<Mxtb\Model\Lookup\RelatedLookup>")
      * @SerializedName("RelatedLookups")
      * @Accessor(getter="getRelatedLookups",setter="setRelatedLookups")
      */
@@ -361,7 +361,7 @@ abstract class AbstractLookup
     }
 
     /**
-     * @return RelatedLookups[]|null
+     * @return RelatedLookup[]|null
      */
     public function getRelatedLookups()
     {
@@ -369,7 +369,7 @@ abstract class AbstractLookup
     }
 
     /**
-     * @param RelatedLookups[]|null $relatedLookups
+     * @param RelatedLookup[]|null $relatedLookups
      * @return AbstractLookup
      */
     public function setRelatedLookups(array $relatedLookups = null) : AbstractLookup
