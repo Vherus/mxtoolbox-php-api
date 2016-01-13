@@ -64,7 +64,7 @@ use Mxtb\Repository\Lookup\LookupNetworkRepository;
 
 require '../vendor/autoload.php';
 
-$mxtb = new MxToolbox(new ApiToken(''), false);
+$mxtb = new MxToolbox(new ApiToken(), false);
 $repository = new LookupNetworkRepository($mxtb);
 $blacklist = $repository->getBlacklist('example.com');
 
