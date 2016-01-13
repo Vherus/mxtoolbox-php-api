@@ -42,8 +42,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $domainName
+     * @return InformationResponse
      */
-    public function setDomainName(string $domainName) : InformationResponse
+    public function setDomainName(string $domainName = null) : InformationResponse
     {
         $this->domainName = $domainName;
         return $this;
@@ -59,8 +60,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $ipAddress
+     * @return InformationResponse
      */
-    public function setIPAddress(string $ipAddress) : AbstractInformationResponse
+    public function setIPAddress(string $ipAddress = null) : InformationResponse
     {
         $this->ipAddress = $ipAddress;
         return $this;
@@ -76,8 +78,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $ttl
+     * @return InformationResponse
      */
-    public function setTTL(string $ttl) : AbstractInformationResponse
+    public function setTTL(string $ttl = null) : InformationResponse
     {
         $this->ttl = $ttl;
         return $this;
