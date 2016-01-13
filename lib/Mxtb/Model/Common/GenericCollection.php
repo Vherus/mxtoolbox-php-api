@@ -105,11 +105,11 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @example
      *
      * $passed->sort(function($a, $b) {
-     *      if ($a->getName() == $b->getName()) {
+     *      if ($a->getId() == $b->getId()) {
      *          return 0;
      *      }
      *
-     *      return $a->getName() != $b->getName() ? 1 : -1;
+     *      return ($a->getId() < $b->getId()) ? -1 : 1;
      * }
      *
      * @param \Closure $closure

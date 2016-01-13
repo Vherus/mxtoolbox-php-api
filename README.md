@@ -96,6 +96,20 @@ $passed = $blacklist->getPassed()->filter(function($key, $value) {
 });
 ```
 
+## Sorting the collections
+
+You can easily sort collections using the same method as PHP's standard [uasort](http://php.net/uasort) function attached to the actual collection
+
+```php
+$passed->sort(function($a, $b) {
+   if ($a->getId() == $b->getId()) {
+       return 0;
+   }
+   
+   return ($a->getId() < $b->getId()) ? -1 : 1;
+}
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
