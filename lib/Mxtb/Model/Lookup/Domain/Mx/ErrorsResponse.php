@@ -30,8 +30,9 @@ class ErrorsResponse
 
     /**
      * @param string|null $message
+     * @return ErrorsResponse
      */
-    public function setMessage(string $message) : ErrorsResponse
+    public function setMessage(string $message = null) : ErrorsResponse
     {
         $this->message = $message;
         return $this;
