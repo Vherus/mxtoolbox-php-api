@@ -40,9 +40,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Blacklist
+     * @return Blacklist
      */
-    public function getBlacklist(string $domain) : \Mxtb\Model\Lookup\Network\Blacklist
+    public function getBlacklist(string $domain) : Blacklist
     {
         $api = new Blacklist($this->mxtb);
         return $api->getBlacklist($domain);
@@ -50,9 +50,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Smtp
+     * @return Smtp
      */
-    public function getSmtp(string $domain) : \Mxtb\Model\Lookup\Network\Smtp
+    public function getSmtp(string $domain) : Smtp
     {
         $api = new Smtp($this->mxtb);
         return $api->getSmtp($domain);
@@ -60,9 +60,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Tcp
+     * @return Tcp
      */
-    public function getTcp(string $domain) : \Mxtb\Model\Lookup\Network\Tcp
+    public function getTcp(string $domain) : Tcp
     {
         $api = new Tcp($this->mxtb);
         return $api->getTcp($domain);
@@ -70,9 +70,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Http
+     * @return Http
      */
-    public function getHttp(string $domain) : \Mxtb\Model\Lookup\Network\Http
+    public function getHttp(string $domain) : Http
     {
         $api = new Http($this->mxtb);
         return $api->getHttp($domain);
@@ -80,9 +80,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Https
+     * @return Https
      */
-    public function getHttps(string $domain) : \Mxtb\Model\Lookup\Network\Https
+    public function getHttps(string $domain) : Https
     {
         $api = new Https($this->mxtb);
         return $api->getHttps($domain);
@@ -90,9 +90,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Ping
+     * @return Ping
      */
-    public function getPing(string $domain) : \Mxtb\Model\Lookup\Network\Ping
+    public function getPing(string $domain) : Ping
     {
         $api = new Ping($this->mxtb);
         return $api->getPing($domain);
@@ -100,9 +100,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Trace
+     * @return Trace
      */
-    public function getTrace(string $domain) : \Mxtb\Model\Lookup\Network\Trace
+    public function getTrace(string $domain) : Trace
     {
         $api = new Trace($this->mxtb);
         return $api->getTrace($domain);
