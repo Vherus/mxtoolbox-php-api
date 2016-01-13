@@ -24,7 +24,7 @@ class ApiToken
      * ApiToken constructor.
      * @param $key
      */
-    public function __construct(string $key)
+    public function __construct(string $key = '')
     {
         $this->set($key);
     }

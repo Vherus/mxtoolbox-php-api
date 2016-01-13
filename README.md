@@ -18,7 +18,7 @@ Start by constructing your MxToolbox client
 $apiToken = new \Mxtb\ApiToken('your-api-key');
 $mxtb = new \Mxtb\MxToolbox($apiToken);
 ```
-If you want to use the "example.com" test domain provided by MxToolbox during development, pass an empty string to the ApiToken constructor.
+If you want to use the "example.com" test domain provided by MxToolbox during development, either pass an empty string to the ApiToken constructor or leave it empty.
 
 The wrapper is set to use HTTPS by default. To force HTTP, pass false as an optional second parameter
 
