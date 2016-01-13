@@ -24,6 +24,24 @@ Or by adding the following to your require block
 "mxtoolbox-php/api": "~1.0"
 ```
 
+If you're new to composer, install it via [getcomposer.org](http://getcomposer.org)
+Once installed, create a file named `composer.json` in your project root directory and paste the following
+
+```
+{
+    "require": {
+        "mxtoolbox-php/api": "~1.0"
+    }
+}
+```
+
+Then in a terminal (or cmd) in your project root, run `composer install` to download the dependencies.
+Next, include composers autoloader so you don't have to require each class
+
+```php
+require_once dirname(__DIR__).'/vendor/autoload.php';
+```
+
 ## Getting Started
 
 Start by constructing your MxToolbox client
