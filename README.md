@@ -110,6 +110,18 @@ $passed->sort(function($a, $b) {
 }
 ```
 
+## Request a related lookup
+
+You can quickly send a new request from a related lookup within your RelatedLookup collection. For example:
+
+```php
+$related = $blacklist->getRelatedLookups();
+$newLookup = $related->get(1)->getLookup($mxtb);
+
+//$newLookup now contains an entirely new result set depending on what the command was in the related
+//lookup at index 1 in RelatedLookup collection
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
