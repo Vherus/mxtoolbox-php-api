@@ -7,7 +7,8 @@ A PHP wrapper for use with the [MxToolbox API](http://mxtoolbox.com/productinfo/
 
 Influenced by Michael Roterman's TMDB PHP API Wrapper (https://github.com/php-tmdb/api)
 
-This project (currently in early development) aims to provide a PHP wrapper for the MxToolbox API and all it has to offer.
+Currently the only method available within this package is the Lookup method. There may be some response types missing (Warnings, primarily) that
+we'd appreciate the community contributing to or at least letting us know what the properties for those objects are.
 
 
 ## Getting Started
