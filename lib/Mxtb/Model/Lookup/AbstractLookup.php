@@ -16,6 +16,8 @@ namespace Mxtb\Model\Lookup;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
+use Mxtb\Model\Collection\RelatedLookup as RelatedLookupCollection;
+use Mxtb\Model\Collection\Timeout;
 use Mxtb\Model\Lookup\RelatedLookup;
 use Mxtb\Model\Lookup\TimeoutResponse;
 
@@ -113,6 +115,8 @@ abstract class AbstractLookup
     protected $emailServiceProvider;
 
     /**
+     * @var RelatedLookupCollection
+     *
      * @Type("array<Mxtb\Model\Lookup\RelatedLookup>")
      * @SerializedName("RelatedLookups")
      * @Accessor(getter="getRelatedLookups",setter="setRelatedLookups")
@@ -120,6 +124,8 @@ abstract class AbstractLookup
     protected $relatedLookups;
 
     /**
+     * @var Timeout
+     *
      * @Type("array<Mxtb\Model\Lookup\TimeoutResponse>")
      * @SerializedName("Timeouts")
      * @Accessor(getter="getTimeouts",setter="setTimeouts")
@@ -361,7 +367,7 @@ abstract class AbstractLookup
     }
 
     /**
-     * @return RelatedLookup[]|null
+     * @return RelatedLookupCollection|null
      */
     public function getRelatedLookups()
     {
@@ -374,12 +380,12 @@ abstract class AbstractLookup
      */
     public function setRelatedLookups(array $relatedLookups = null) : AbstractLookup
     {
-        $this->relatedLookups = $relatedLookups;
+        $this->relatedLookups = new RelatedLookupCollection($relatedLookups);
         return $this;
     }
 
     /**
-     * @return TimeoutResponse[]|null
+     * @return Timeout|null
      */
     public function getTimeouts()
     {
@@ -392,7 +398,7 @@ abstract class AbstractLookup
      */
     public function setTimeouts(array $timeouts = null) : AbstractLookup
     {
-        $this->timeouts = $timeouts;
+        $this->timeouts = new Timeout($timeouts);
         return $this;
     }
 }
