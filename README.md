@@ -74,6 +74,28 @@ echo '<pre>';
 var_dump($passed);
 ```
 
+## Filtering the collections
+
+It's possible for you to easily filter the collections you receive (such as Passed, Failed etc.) thanks to the GenericCollection class. The filter method accepts
+a custom closure function, but we have included some common filters in the collections themselves. Some examples below:
+
+```php
+//Only collect the Passed objects that do not have a null or empty string DelistURL
+$passed = $blacklist->getPassed()->delistUrlNotNullOrEmpty();
+
+//Only collect Passed objects that do not have a null DelistURL, but accept empty strings
+$passed = $blacklist->getPassed()->delistUrlNotNull();
+
+//Only collect Passed objects where the Name is 'Example Name'
+$passed = $blacklist->getPassed()->filter(function($key, $value) {
+    if ($value->getName() == 'Example Name')  {
+        return true;
+    } else {
+        return false;
+    }
+});
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
