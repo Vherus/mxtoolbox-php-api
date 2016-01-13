@@ -11,9 +11,9 @@
  * @copyright 2016 Nathan King (nkvherus@gmail.com)
  */
 
-namespace Mxtb\Tests\Api\Lookup;
+namespace Mxtb\Tests\Api\Lookup\Network;
 
-use Mxtb\Api\Lookup\Blacklist;
+use Mxtb\Api\Lookup\Network\Blacklist;
 use Mxtb\Model\Lookup\Network\Blacklist as BlacklistResponse;
 use Mxtb\ApiToken;
 use Mxtb\MxToolbox;
