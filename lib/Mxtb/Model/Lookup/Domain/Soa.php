@@ -11,17 +11,17 @@
  * @version dev
  */
 
-namespace Mxtb\Model\Lookup\Network;
+namespace Mxtb\Model\Lookup\Domain;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
-use Mxtb\Model\Lookup\Network\Trace\InformationResponse;
+use Mxtb\Model\Lookup\Domain\Soa\InformationResponse;
 
-class Trace extends AbstractNetworkLookup
+class Soa extends AbstractDomainLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Trace\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Domain\Soa\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
@@ -37,10 +37,10 @@ class Trace extends AbstractNetworkLookup
 
     /**
      * @param InformationResponse[]|null $information
-     * @return Trace
+     * @return Soa
      */
-    public function setInformation(array $information = null) : Trace
-    {
+    public function setInformation(array $information = null) : Soa
+	{
         $this->information = $information;
         return $this;
     }

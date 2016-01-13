@@ -22,7 +22,7 @@ use Mxtb\Model\Lookup\Network\Tcp\InformationResponse;
 class Tcp extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Tcp\PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Tcp\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */

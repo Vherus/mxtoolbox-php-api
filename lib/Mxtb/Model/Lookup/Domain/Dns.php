@@ -11,29 +11,55 @@
  * @version dev
  */
 
-namespace Mxtb\Model\Lookup\Network;
+namespace Mxtb\Model\Lookup\Domain;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
-use Mxtb\Model\Lookup\Network\Http\PassedResponse;
-use Mxtb\Model\Lookup\Network\Http\InformationResponse;
+use Mxtb\Model\Lookup\Domain\Dns\FailedResponse;
+use Mxtb\Model\Lookup\Domain\Dns\PassedResponse;
+use Mxtb\Model\Lookup\Domain\Dns\InformationResponse;
 
-class Http extends AbstractNetworkLookup
+class Dns extends AbstractDomainLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Http\PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Domain\Dns\FailedResponse>")
+     * @SerializedName("Failed")
+     * @Accessor(getter="getFailed",setter="setFailed")
+     */
+    private $failed;
+
+    /**
+     * @Type("array<Mxtb\Model\Lookup\Domain\Dns\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Http\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Domain\Dns\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
     private $information;
+
+    /**
+     * @return FailedResponse[]|null
+     */
+    public function getFailed()
+    {
+        return $this->failed;
+    }
+
+    /**
+     * @param FailedResponse[]|null $failed
+     * @return Dns
+     */
+    public function setFailed(array $failed = null) : Dns
+	{
+        $this->failed = $failed;
+        return $this;
+    }
 
     /**
      * @return PassedResponse[]|null
@@ -45,10 +71,10 @@ class Http extends AbstractNetworkLookup
 
     /**
      * @param PassedResponse[]|null $passed
-     * @return Http
+     * @return Dns
      */
-    public function setPassed(array $passed = null) : Http
-    {
+    public function setPassed(array $passed = null) : Dns
+	{
         $this->passed = $passed;
         return $this;
     }
@@ -63,10 +89,10 @@ class Http extends AbstractNetworkLookup
 
     /**
      * @param InformationResponse[]|null $information
-     * @return Http
+     * @return Dns
      */
-    public function setInformation(array $information = null) : Http
-    {
+    public function setInformation(array $information = null) : Dns
+	{
         $this->information = $information;
         return $this;
     }

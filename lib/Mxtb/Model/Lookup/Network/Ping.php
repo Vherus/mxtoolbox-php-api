@@ -21,7 +21,7 @@ use Mxtb\Model\Lookup\Network\Ping\InformationResponse;
 class Ping extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Ping\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Ping\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
