@@ -39,9 +39,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return Mx
+     * @return \Mxtb\Model\Lookup\Domain\Mx
      */
-    public function getMx(string $domain) : Mx
+    public function getMx(string $domain) : \Mxtb\Model\Lookup\Domain\Mx
     {
         $api = new Mx($this->mxtb);
         return $api->getMx($domain);
@@ -49,9 +49,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return A
+     * @return \Mxtb\Model\Lookup\Domain\A
      */
-    public function getA(string $domain) : A
+    public function getA(string $domain) : \Mxtb\Model\Lookup\Domain\A
     {
         $api = new A($this->mxtb);
         return $api->getA($domain);
@@ -59,9 +59,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return Dns
+     * @return \Mxtb\Model\Lookup\Domain\Dns
      */
-    public function getDns(string $domain) : Dns
+    public function getDns(string $domain) : \Mxtb\Model\Lookup\Domain\Dns
     {
         $api = new Dns($this->mxtb);
         return $api->getDns($domain);
@@ -69,9 +69,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return Spf
+     * @return \Mxtb\Model\Lookup\Domain\Spf
      */
-    public function getSpf(string $domain) : Spf
+    public function getSpf(string $domain) : \Mxtb\Model\Lookup\Domain\Spf
     {
         $api = new Spf($this->mxtb);
         return $api->getSpf($domain);
@@ -79,9 +79,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return Txt
+     * @return \Mxtb\Model\Lookup\Domain\Txt
      */
-    public function getTxt(string $domain) : Txt
+    public function getTxt(string $domain) : \Mxtb\Model\Lookup\Domain\Txt
     {
         $api = new Txt($this->mxtb);
         return $api->getTxt($domain);
@@ -89,9 +89,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return Soa
+     * @return \Mxtb\Model\Lookup\Domain\Soa
      */
-    public function getSoa(string $domain) : Soa
+    public function getSoa(string $domain) : \Mxtb\Model\Lookup\Domain\Soa
     {
         $api = new Soa($this->mxtb);
         return $api->getSoa($domain);
