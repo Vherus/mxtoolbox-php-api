@@ -40,8 +40,8 @@ class Blacklist extends AbstractNetworkLookup
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\PassedResponse>")
-     * @SerializedName("Passed")
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\InformationResponse>")
+     * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
     private $information;
@@ -92,7 +92,7 @@ class Blacklist extends AbstractNetworkLookup
     }
 
     /**
-     * @param PassedResponse[]|null $information
+     * @param InformationResponse[]|null $information
      * @return Blacklist
      */
     public function setInformation(array $information = null) : Blacklist
