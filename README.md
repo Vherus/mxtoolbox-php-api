@@ -26,6 +26,54 @@ The wrapper is set to use HTTPS by default. To force HTTP, pass false as an opti
 $mxtb = new \Mxtb\MxToolbox($apiToken, false);
 ```
 
+## Using the API
+
+We've tried to keep the usage of this package as intuitive as possible, so you should be able to guess the method to use in most cases.
+
+First, let's create a repository for the API method we want to use (Lookup or Monitor)
+
+```php
+$repository = new Mxtb\Repository\Lookup\LookupNetworkRepository($mxtb);
+```
+
+Now we can decide which lookup we want to use. For example, if we want to lookup blacklisting for a domain:
+
+```php
+$blacklist = $repository->getBlacklist('github.com');
+
+//To see what's contained in the response model, you could do something like below
+//echo '<pre>';
+//var_dump($blacklist);
+```
+
+From here, it should be intuition for the most part. If there is a UID field in the MxToolbox API response JSON, then
+you should assume there is a getUid() method on the associated model. For example:
+
+```php
+$uid = $blacklist->getUid();
+```
+
+## Functional example
+
+```php
+namespace TestingMxtb;
+
+use Mxtb\ApiToken;
+use Mxtb\MxToolbox;
+use Mxtb\Repository\Lookup\LookupNetworkRepository;
+
+require '../vendor/autoload.php';
+
+$mxtb = new MxToolbox(new ApiToken(''), false);
+$repository = new LookupNetworkRepository($mxtb);
+$blacklist = $repository->getBlacklist('example.com');
+
+$passed = $blacklist->getPassed();
+
+echo '<pre>';
+var_dump($passed);
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
