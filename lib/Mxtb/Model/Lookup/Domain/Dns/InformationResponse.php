@@ -67,8 +67,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $domainName
+     * @return InformationResponse
      */
-    public function setDomainName(string $domainName) : InformationResponse
+    public function setDomainName(string $domainName = null) : InformationResponse
     {
         $this->domainName = $domainName;
         return $this;
@@ -84,8 +85,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $ipAddress
+     * @return InformationResponse
      */
-    public function setIPAddress(string $ipAddress) : InformationResponse
+    public function setIPAddress(string $ipAddress = null) : InformationResponse
     {
         $this->ipAddress = $ipAddress;
         return $this;
@@ -101,8 +103,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $ttl
+     * @return InformationResponse
      */
-    public function setTTL(string $ttl) : InformationResponse
+    public function setTTL(string $ttl = null) : InformationResponse
     {
         $this->ttl = $ttl;
         return $this;
@@ -118,8 +121,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $status
+     * @return InformationResponse
      */
-    public function setStatus(string $status) : InformationResponse
+    public function setStatus(string $status = null) : InformationResponse
     {
         $this->status = $status;
         return $this;
@@ -135,8 +139,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $time
+     * @return InformationResponse
      */
-    public function setTime(string $time) : InformationResponse
+    public function setTime(string $time = null) : InformationResponse
     {
         $this->time = $time;
         return $this;
@@ -152,8 +157,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $auth
+     * @return InformationResponse
      */
-    public function setAuth(string $auth) : InformationResponse
+    public function setAuth(string $auth = null) : InformationResponse
     {
         $this->auth = $auth;
         return $this;
@@ -169,8 +175,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $parent
+     * @return InformationResponse
      */
-    public function setParent(string $parent) : InformationResponse
+    public function setParent(string $parent = null) : InformationResponse
     {
         $this->parent = $parent;
         return $this;
@@ -186,8 +193,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $local
+     * @return InformationResponse
      */
-    public function setLocal(string $local) : InformationResponse
+    public function setLocal(string $local = null) : InformationResponse
     {
         $this->local = $local;
         return $this;
