@@ -56,6 +56,70 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
     }
 
     /**
+     * @param string $key
+     * @param string $value
+     * @return $this
+     */
+    public function add(string $key, string $value) : GenericCollection
+    {
+        if (!array_key_exists($key, $this->data) && null !== $key) {
+            $this->data[$key] = $value;
+        } elseif (!array_key_exists($key, $this->data) && null == $key) {
+            $this->data[] = $value;
+        } elseif (is_array($this->data[$key])) {
+            $this->data[$key][] = $value;
+        } else {
+            $this->data[$key] = [$this->data[$key], $value];
+        }
+
+        return $this;
+    }
+
+    /**
+     * Iterates over each key value pair in the collection passing them to the Closure. If the  Closure function returns
+     * true, the current value from input is returned into the result Collection.  The Closure must accept three
+     * parameters: (string) $key, (string) $value and return Boolean TRUE or FALSE for each value.
+     *
+     * @param \Closure $closure
+     * @param bool $static
+     * @return GenericCollection|static
+     */
+    public function filter(\Closure $closure, bool $static = true)
+    {
+        $collection = ($static) ? new static() : new self();
+
+        foreach($this->data as $key => $value) {
+            if ($closure($key, $value)) {
+                $collection->add($key, $value);
+            }
+        }
+
+        return $collection;
+    }
+
+    /**
+     * Sort the collection
+     *
+     * @example
+     *
+     * $passed->sort(function($a, $b) {
+     *      if ($a->getName() == $b->getName()) {
+     *          return 0;
+     *      }
+     *
+     *      return $a->getName() != $b->getName() ? 1 : -1;
+     * }
+     *
+     * @param \Closure $closure
+     * @return GenericCollection
+     */
+    public function sort(\Closure $closure) : GenericCollection
+    {
+        uasort($this->data, $closure);
+        return $this;
+    }
+
+    /**
      * Clears information data associated with this object
      * @return GenericCollection
      */
