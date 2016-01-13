@@ -11,7 +11,7 @@
  * @copyright 2016 Nathan King (nkvherus@gmail.com)
  */
 
-namespace Mxtb\Model\Lookup;
+namespace Mxtb\Model\Lookup\Network\Blacklist;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;

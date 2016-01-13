@@ -21,7 +21,7 @@ use Mxtb\Model\Lookup\Network\Trace\InformationResponse;
 class Trace extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Trace\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Trace\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */

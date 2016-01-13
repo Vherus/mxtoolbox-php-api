@@ -18,6 +18,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 use Mxtb\Model\Lookup\Network\Blacklist\FailedResponse;
 use Mxtb\Model\Lookup\Network\Blacklist\PassedResponse;
+use Mxtb\Model\Lookup\Network\Blacklist\InformationResponse;
 
 class Blacklist extends AbstractNetworkLookup
 {
@@ -34,6 +35,13 @@ class Blacklist extends AbstractNetworkLookup
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
+
+    /**
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\PassedResponse>")
+     * @SerializedName("Passed")
+     * @Accessor(getter="getInformation",setter="setInformation")
+     */
+    private $information;
 
     /**
      * @return FailedResponse[]|null
@@ -68,6 +76,24 @@ class Blacklist extends AbstractNetworkLookup
     public function setPassed(array $passed = null) : Blacklist
     {
         $this->passed = $passed;
+        return $this;
+    }
+
+    /**
+     * @return InformationResponse[]|null
+     */
+    public function getInformation()
+    {
+        return $this->information;
+    }
+
+    /**
+     * @param PassedResponse[]|null $information
+     * @return Blacklist
+     */
+    public function setInformation(array $information = null) : Blacklist
+    {
+        $this->information = $information;
         return $this;
     }
 }

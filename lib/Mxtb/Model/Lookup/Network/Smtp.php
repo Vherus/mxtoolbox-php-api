@@ -23,7 +23,7 @@ use Mxtb\Model\Lookup\Network\Smtp\InformationResponse;
 class Smtp extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Smtp\FailedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Smtp\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
      */

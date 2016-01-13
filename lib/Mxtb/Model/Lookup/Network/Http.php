@@ -22,14 +22,14 @@ use Mxtb\Model\Lookup\Network\Http\InformationResponse;
 class Http extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Http\PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Http\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Http\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Http\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
