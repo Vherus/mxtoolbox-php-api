@@ -45,7 +45,7 @@ abstract class AbstractApi
      * @param array $headers
      * @return mixed
      */
-    public function get(string $path, array $headers = [])
+    protected function get(string $path, array $headers = [])
     {
         $response = $this->client->get($path, $headers)->getBody()->getContents();
 

@@ -13,6 +13,7 @@
 
 namespace Mxtb;
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -116,6 +117,6 @@ class MxToolbox
      */
     private function buildAnnotationRegistry()
     {
-        \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
+        AnnotationRegistry::registerLoader('class_exists');
     }
 }

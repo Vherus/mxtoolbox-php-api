@@ -11,7 +11,7 @@
  * @copyright 2016 Nathan King (nkvherus@gmail.com)
  */
 
-namespace Mxtb\Api\Lookup;
+namespace Mxtb\Api\Lookup\Network;
 
 use Mxtb\Api\AbstractApi;
 use Mxtb\Model\Lookup\Network\Blacklist as BlacklistModel;
