@@ -23,21 +23,21 @@ use Mxtb\Model\Lookup\Network\Smtp\InformationResponse;
 class Smtp extends AbstractNetworkLookup
 {
     /**
-     * @Type("array<Mxtb\Model\Lookup\Smtp\Blacklist\FailedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Smtp\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
      */
     private $failed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Smtp\Blacklist\PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Smtp\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Smtp\Blacklist\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Smtp\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
