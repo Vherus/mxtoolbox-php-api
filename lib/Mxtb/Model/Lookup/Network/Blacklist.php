@@ -16,6 +16,8 @@ namespace Mxtb\Model\Lookup\Network;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
+use Mxtb\Model\Collection\Failed;
+use Mxtb\Model\Collection\Information;
 use Mxtb\Model\Collection\Passed;
 use Mxtb\Model\Lookup\Network\Blacklist\FailedResponse;
 use Mxtb\Model\Lookup\Network\Blacklist\PassedResponse;
@@ -24,6 +26,8 @@ use Mxtb\Model\Lookup\Network\Blacklist\InformationResponse;
 class Blacklist extends AbstractNetworkLookup
 {
     /**
+     * @var Failed
+     *
      * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
@@ -40,14 +44,16 @@ class Blacklist extends AbstractNetworkLookup
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\PassedResponse>")
+     * @var Information
+     *
+     * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\InformationResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
     private $information;
 
     /**
-     * @return FailedResponse[]|null
+     * @return Failed|null
      */
     public function getFailed()
     {
@@ -60,7 +66,7 @@ class Blacklist extends AbstractNetworkLookup
      */
     public function setFailed(array $failed = null) : Blacklist
     {
-        $this->failed = $failed;
+        $this->failed = new Failed($failed);
         return $this;
     }
 
@@ -79,12 +85,11 @@ class Blacklist extends AbstractNetworkLookup
     public function setPassed(array $passed = null) : Blacklist
     {
         $this->passed = new Passed($passed);
-//        $this->passed = $passed;
         return $this;
     }
 
     /**
-     * @return InformationResponse[]|null
+     * @return Information|null
      */
     public function getInformation()
     {
@@ -92,12 +97,12 @@ class Blacklist extends AbstractNetworkLookup
     }
 
     /**
-     * @param PassedResponse[]|null $information
+     * @param InformationResponse[]|null $information
      * @return Blacklist
      */
     public function setInformation(array $information = null) : Blacklist
     {
-        $this->information = $information;
+        $this->information = new Information($information);
         return $this;
     }
 }
