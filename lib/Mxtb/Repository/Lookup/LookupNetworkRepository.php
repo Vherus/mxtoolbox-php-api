@@ -34,9 +34,9 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return mixed
+     * @return \Mxtb\Model\Lookup\Network\Blacklist
      */
-    public function getBlacklist(string $domain)
+    public function getBlacklist(string $domain) : \Mxtb\Model\Lookup\Network\Blacklist
     {
         $api = new Blacklist($this->mxtb);
         return $api->getBlacklist($domain);

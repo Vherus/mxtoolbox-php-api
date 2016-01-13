@@ -35,13 +35,12 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @param $property
      * @return mixed
      */
-    public function __get(string $property)
+    public function get($key)
     {
-        if (!array_key_exists($property, $this->data)) {
-            throw new InvalidArgumentException('Property ' . $property . ' does not exist.');
-        } else {
-            return $this->data[$property];
+        if (is_object($key)) {
+            $key = spl_object_hash($key);
         }
+        return isset($this->data[$key]) ? $this->data[$key] : null;
     }
 
     /**
@@ -49,9 +48,12 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @param $value
      * @return GenericCollection
      */
-    public function __set(string $property, string $value) : GenericCollection
+    public function set($key, $value) : GenericCollection
     {
-        $this->data[$property] = $value;
+        if ($key === null && is_object($value)) {
+            $key = spl_object_hash($value);
+        }
+        $this->data[$key] = $value;
         return $this;
     }
 
@@ -60,7 +62,7 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @param string $value
      * @return $this
      */
-    public function add(string $key, string $value) : GenericCollection
+    public function add($key, $value) : GenericCollection
     {
         if (!array_key_exists($key, $this->data) && null !== $key) {
             $this->data[$key] = $value;
