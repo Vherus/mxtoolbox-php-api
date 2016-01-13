@@ -29,7 +29,7 @@ class Tcp extends AbstractNetworkLookup
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Tcp\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Tcp\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */

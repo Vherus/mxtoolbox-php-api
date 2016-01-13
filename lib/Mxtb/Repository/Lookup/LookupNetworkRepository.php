@@ -50,12 +50,12 @@ class LookupNetworkRepository
 
     /**
      * @param string $domain
-     * @return \Mxtb\Model\Lookup\Network\Smpt
+     * @return \Mxtb\Model\Lookup\Network\Smtp
      */
-    public function getSmpt(string $domain) : \Mxtb\Model\Lookup\Network\Smpt
+    public function getSmtp(string $domain) : \Mxtb\Model\Lookup\Network\Smtp
     {
-        $api = new Smpt($this->mxtb);
-        return $api->getSmpt($domain);
+        $api = new Smtp($this->mxtb);
+        return $api->getSmtp($domain);
     }
 
     /**

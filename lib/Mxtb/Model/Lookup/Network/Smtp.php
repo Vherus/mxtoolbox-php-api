@@ -30,14 +30,14 @@ class Smtp extends AbstractNetworkLookup
     private $failed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Smtp\PassedResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Smtp\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
 
     /**
-     * @Type("array<Mxtb\Model\Lookup\Smtp\InformationResponse>")
+     * @Type("array<Mxtb\Model\Lookup\Network\Smtp\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
