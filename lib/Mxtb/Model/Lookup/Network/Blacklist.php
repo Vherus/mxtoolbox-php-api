@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of mxtoolbox-php-api
  *
@@ -10,7 +10,9 @@
  * @author Nathan King (nkvherus@gmail.com)
  * @copyright 2016 Nathan King (nkvherus@gmail.com)
  */
+
 namespace Mxtb\Model\Lookup\Network;
+
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
@@ -20,6 +22,7 @@ use Mxtb\Model\Collection\Passed;
 use Mxtb\Model\Lookup\Network\Blacklist\FailedResponse;
 use Mxtb\Model\Lookup\Network\Blacklist\PassedResponse;
 use Mxtb\Model\Lookup\Network\Blacklist\InformationResponse;
+
 class Blacklist extends AbstractNetworkLookup
 {
     /**
@@ -30,6 +33,7 @@ class Blacklist extends AbstractNetworkLookup
      * @Accessor(getter="getFailed",setter="setFailed")
      */
     private $failed;
+
     /**
      * @var Passed
      *
@@ -38,14 +42,16 @@ class Blacklist extends AbstractNetworkLookup
      * @Accessor(getter="getPassed",setter="setPassed")
      */
     private $passed;
+
     /**
      * @var Information
      *
      * @Type("array<Mxtb\Model\Lookup\Network\Blacklist\InformationResponse>")
-     * @SerializedName("Passed")
+     * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
      */
     private $information;
+
     /**
      * @return Failed|null
      */
@@ -53,6 +59,7 @@ class Blacklist extends AbstractNetworkLookup
     {
         return $this->failed;
     }
+
     /**
      * @param FailedResponse[]|null $failed
      * @return Blacklist
@@ -62,6 +69,7 @@ class Blacklist extends AbstractNetworkLookup
         $this->failed = new Failed($failed);
         return $this;
     }
+
     /**
      * @return Passed|null
      */
@@ -69,6 +77,7 @@ class Blacklist extends AbstractNetworkLookup
     {
         return $this->passed;
     }
+
     /**
      * @param PassedResponse[]|null $passed
      * @return Blacklist
@@ -78,6 +87,7 @@ class Blacklist extends AbstractNetworkLookup
         $this->passed = new Passed($passed);
         return $this;
     }
+
     /**
      * @return Information|null
      */
@@ -85,6 +95,7 @@ class Blacklist extends AbstractNetworkLookup
     {
         return $this->information;
     }
+
     /**
      * @param InformationResponse[]|null $information
      * @return Blacklist

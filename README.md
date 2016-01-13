@@ -105,7 +105,7 @@ $passed->sort(function($a, $b) {
    if ($a->getId() == $b->getId()) {
        return 0;
    }
-   
+
    return ($a->getId() < $b->getId()) ? -1 : 1;
 }
 ```
