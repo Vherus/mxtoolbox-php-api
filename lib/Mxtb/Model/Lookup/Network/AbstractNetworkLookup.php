@@ -32,7 +32,7 @@ abstract class AbstractNetworkLookup extends AbstractLookup
     protected $transcript;
 
     /**
-     * @return TranscriptResponse[]|null
+     * @return Transcript|null
      */
     public function getTranscript()
     {
@@ -40,7 +40,7 @@ abstract class AbstractNetworkLookup extends AbstractLookup
     }
 
     /**
-     * @param array|null $transcript
+     * @param TranscriptResponse[]|null $transcript
      * @return $this
      */
     public function setTranscript(array $transcript = null) : AbstractNetworkLookup
