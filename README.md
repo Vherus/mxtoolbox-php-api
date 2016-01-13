@@ -53,7 +53,7 @@ you should assume there is a getUid() method on the associated model. For exampl
 $uid = $blacklist->getUid();
 ```
 
-## Functional example
+## Working example
 
 ```php
 namespace TestingMxtb;
