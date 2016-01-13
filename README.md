@@ -10,6 +10,19 @@ Influenced by Michael Roterman's TMDB PHP API Wrapper (https://github.com/php-tm
 Currently the only method available within this package is the Lookup method. There may be some response types missing (Warnings, primarily) that
 we'd appreciate the community contributing to or at least letting us know what the properties for those objects are.
 
+## Installation
+
+You can install via composer using either
+
+```
+composer require mxtoolbox-php/api
+```
+
+Or by adding the following to your require block
+
+```
+"mxtoolbox-php/api": "~1.0"
+```
 
 ## Getting Started
 

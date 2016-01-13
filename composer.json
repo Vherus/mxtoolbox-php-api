@@ -3,15 +3,18 @@
   "description": "PHP wrapper for the MxToolbox API that aims to offer all of the functionality available from the raw API.",
   "type": "library",
   "keywords": ["mxtoolbox", "mx", "api", "wrapper", "php", "dns"],
+  "homepage": "https://github.com/Vherus/mxtoolbox-php-api",
   "license": "MIT",
   "authors": [
     {
       "name": "Nathan King",
-      "email": "nkvherus@gmail.com"
+      "email": "nkvherus@gmail.com",
+      "role": "Developer"
     },
     {
       "name": "Darien Livermore",
-      "email": "daz.livermore@gmail.com"
+      "email": "daz.livermore@gmail.com",
+      "role": "Developer"
     }
   ],
   "require": {
