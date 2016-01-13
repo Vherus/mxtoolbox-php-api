@@ -19,10 +19,15 @@ use JMS\Serializer\Annotation\Accessor;
 use Mxtb\Model\Lookup\Domain\Dns\FailedResponse;
 use Mxtb\Model\Lookup\Domain\Dns\PassedResponse;
 use Mxtb\Model\Lookup\Domain\Dns\InformationResponse;
+use Mxtb\Model\Collection\Failed;
+use Mxtb\Model\Collection\Passed;
+use Mxtb\Model\Collection\Information;
 
 class Dns extends AbstractDomainLookup
 {
     /**
+     * @var Failed
+     *
      * @Type("array<Mxtb\Model\Lookup\Domain\Dns\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
@@ -30,6 +35,8 @@ class Dns extends AbstractDomainLookup
     private $failed;
 
     /**
+     * @var Passed
+     *
      * @Type("array<Mxtb\Model\Lookup\Domain\Dns\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
@@ -37,6 +44,8 @@ class Dns extends AbstractDomainLookup
     private $passed;
 
     /**
+     * @var Information
+     *
      * @Type("array<Mxtb\Model\Lookup\Domain\Dns\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
@@ -44,7 +53,7 @@ class Dns extends AbstractDomainLookup
     private $information;
 
     /**
-     * @return FailedResponse[]|null
+     * @return Failed|null
      */
     public function getFailed()
     {
@@ -57,12 +66,12 @@ class Dns extends AbstractDomainLookup
      */
     public function setFailed(array $failed = null) : Dns
 	{
-        $this->failed = $failed;
+        $this->failed = new Failed($failed);
         return $this;
     }
 
     /**
-     * @return PassedResponse[]|null
+     * @return Passed|null
      */
     public function getPassed()
     {
@@ -75,12 +84,12 @@ class Dns extends AbstractDomainLookup
      */
     public function setPassed(array $passed = null) : Dns
 	{
-        $this->passed = $passed;
+        $this->passed = new Passed($passed);
         return $this;
     }
 
     /**
-     * @return InformationResponse[]|null
+     * @return Information|null
      */
     public function getInformation()
     {
@@ -93,7 +102,7 @@ class Dns extends AbstractDomainLookup
      */
     public function setInformation(array $information = null) : Dns
 	{
-        $this->information = $information;
+        $this->information = new Information($information);
         return $this;
     }
 }

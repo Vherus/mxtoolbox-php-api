@@ -17,10 +17,13 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 use Mxtb\Model\Lookup\Domain\Mx\ErrorsResponse;
+use Mxtb\Model\Collection\Error;
 
 class Mx extends AbstractDomainLookup
 {
     /**
+     * @var Error
+     *
      * @Type("array<Mxtb\Model\Lookup\Domain\Mx\ErrorsResponse>")
      * @SerializedName("Errors")
      * @Accessor(getter="getErrors",setter="setErrors")
@@ -28,7 +31,7 @@ class Mx extends AbstractDomainLookup
     private $errors;
 
     /**
-     * @return ErrorsResponse[]|null
+     * @return Error|null
      */
     public function getErrors()
     {
@@ -41,7 +44,7 @@ class Mx extends AbstractDomainLookup
      */
     public function setErrors(array $errors = null) : Mx
 	{
-        $this->errors = $errors;
+        $this->errors = new Error($errors);
         return $this;
     }
 }

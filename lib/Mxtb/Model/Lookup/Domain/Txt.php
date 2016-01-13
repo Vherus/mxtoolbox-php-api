@@ -16,11 +16,14 @@ namespace Mxtb\Model\Lookup\Domain;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
+use Mxtb\Model\Collection\Information;
 use Mxtb\Model\Lookup\Domain\Txt\InformationResponse;
 
 class Txt extends AbstractDomainLookup
 {
     /**
+     * @var Information
+     *
      * @Type("array<Mxtb\Model\Lookup\Domain\Txt\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
@@ -28,7 +31,7 @@ class Txt extends AbstractDomainLookup
     private $information;
 
     /**
-     * @return InformationResponse[]|null
+     * @return Information|null
      */
     public function getInformation()
     {
@@ -41,7 +44,7 @@ class Txt extends AbstractDomainLookup
      */
     public function setInformation(array $information = null) : Txt
 	{
-        $this->information = $information;
+        $this->information = new Information($information);
         return $this;
     }
 }

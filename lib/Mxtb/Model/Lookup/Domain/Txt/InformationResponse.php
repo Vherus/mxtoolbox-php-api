@@ -13,6 +13,7 @@
  
 namespace Mxtb\Model\Lookup\Domain\Txt;
 
+use Mxtb\Model\Collection\Information;
 use Mxtb\Model\Lookup\Domain\AbstractInformationResponse;
 
 class InformationResponse extends AbstractInformationResponse
@@ -42,8 +43,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $domainName
+     * @return InformationResponse
      */
-    public function setDomainName(string $domainName) : InformationResponse
+    public function setDomainName(string $domainName = null) : InformationResponse
     {
         $this->domainName = $domainName;
         return $this;
@@ -59,8 +61,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $ttl
+     * @return InformationResponse
      */
-    public function setTTL(string $ttl) : InformationResponse
+    public function setTTL(string $ttl = null) : InformationResponse
     {
         $this->ttl = $ttl;
         return $this;
@@ -76,8 +79,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $record
+     * @return InformationResponse
      */
-    public function setRecord(string $record) : InformationResponse
+    public function setRecord(string $record = null) : InformationResponse
     {
         $this->record = $record;
         return $this;

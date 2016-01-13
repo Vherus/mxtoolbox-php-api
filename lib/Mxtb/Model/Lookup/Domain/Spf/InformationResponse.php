@@ -47,8 +47,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $prefix
+     * @return InformationResponse
      */
-    public function setPrefix(string $prefix) : InformationResponse
+    public function setPrefix(string $prefix = null) : InformationResponse
     {
         $this->prefix = $prefix;
         return $this;
@@ -64,8 +65,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $value
+     * @return InformationResponse
      */
-    public function setValue(string $value) : InformationResponse
+    public function setValue(string $value = null) : InformationResponse
     {
         $this->value = $value;
         return $this;
@@ -81,8 +83,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $prefixDesc
+     * @return InformationResponse
      */
-    public function setPrefixDesc(string $prefixDesc) : InformationResponse
+    public function setPrefixDesc(string $prefixDesc = null) : InformationResponse
     {
         $this->prefixDesc = $prefixDesc;
         return $this;
@@ -98,8 +101,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $description
+     * @return InformationResponse
      */
-    public function setDescription(string $description) : InformationResponse
+    public function setDescription(string $description = null) : InformationResponse
     {
         $this->description = $description;
         return $this;

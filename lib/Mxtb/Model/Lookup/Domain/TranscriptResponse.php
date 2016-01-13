@@ -16,47 +16,47 @@ namespace Mxtb\Model\Lookup\Domain;
 class TranscriptResponse
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $timeStamp;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $depth;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $serverName;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $serverIP;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $authoritative;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $elapsedTime;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $result;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $question;
 	
     /**
-     * @var string
+     * @var string|null
      */
     private $answers;
 	
@@ -70,8 +70,9 @@ class TranscriptResponse
 
     /**
      * @param string|null $timeStamp
+     * @return TranscriptResponse
      */
-    public function setTimeStamp(string $timeStamp) : TranscriptResponse
+    public function setTimeStamp(string $timeStamp = null) : TranscriptResponse
     {
         $this->timeStamp = $timeStamp;
         return $this;
@@ -87,8 +88,9 @@ class TranscriptResponse
 
     /**
      * @param string|null $depth
+     * @return TranscriptResponse
      */
-    public function setDepth(string $depth) : TranscriptResponse
+    public function setDepth(string $depth = null) : TranscriptResponse
     {
         $this->depth = $depth;
         return $this;
@@ -104,8 +106,9 @@ class TranscriptResponse
 
     /**
      * @param string|null $serverName
+     * @return  TranscriptResponse
      */
-    public function setServerName(string $serverName) : TranscriptResponse
+    public function setServerName(string $serverName = null) : TranscriptResponse
     {
         $this->serverName = $serverName;
         return $this;
@@ -121,8 +124,9 @@ class TranscriptResponse
 
     /**
      * @param string|null $serverIP
+     * @return TranscriptResponse
      */
-    public function setServerIP(string $serverIP) : TranscriptResponse
+    public function setServerIP(string $serverIP = null) : TranscriptResponse
     {
         $this->serverIP = $serverIP;
         return $this;
@@ -137,9 +141,10 @@ class TranscriptResponse
     }
 
     /**
-     * @param string|null $timeStamp
+     * @param string|null $authoritative
+     * @return TranscriptResponse
      */
-    public function setAuthoritative(string $authoritative) : TranscriptResponse
+    public function setAuthoritative(string $authoritative = null) : TranscriptResponse
     {
         $this->authoritative = $authoritative;
         return $this;
@@ -154,9 +159,10 @@ class TranscriptResponse
     }
 
     /**
-     * @param string|null $timeStamp
+     * @param string|null $elapsedTime
+     * @return TranscriptResponse
      */
-    public function setElapsedTime(string $elapsedTime) : TranscriptResponse
+    public function setElapsedTime(string $elapsedTime = null) : TranscriptResponse
     {
         $this->elapsedTime = $elapsedTime;
         return $this;
@@ -171,9 +177,10 @@ class TranscriptResponse
     }
 
     /**
-     * @param string|null $timeStamp
+     * @param string|null $result
+     * @return TranscriptResponse
      */
-    public function setResult(string $result) : TranscriptResponse
+    public function setResult(string $result = null) : TranscriptResponse
     {
         $this->result = $result;
         return $this;
@@ -188,9 +195,10 @@ class TranscriptResponse
     }
 
     /**
-     * @param string|null $timeStamp
+     * @param string|null $question
+     * @return TranscriptResponse
      */
-    public function setQuestion(string $question) : TranscriptResponse
+    public function setQuestion(string $question = null) : TranscriptResponse
     {
         $this->question = $question;
         return $this;
@@ -205,9 +213,10 @@ class TranscriptResponse
     }
 
     /**
-     * @param string|null $timeStamp
+     * @param string|null $answers
+     * @return TranscriptResponse
      */
-    public function setAnswers(string $answers) : TranscriptResponse
+    public function setAnswers(string $answers = null) : TranscriptResponse
     {
         $this->answers = $answers;
         return $this;

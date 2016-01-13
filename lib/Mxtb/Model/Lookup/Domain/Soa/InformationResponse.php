@@ -47,8 +47,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $domainName
+     * @return InformationResponse
      */
-    public function setDomainName(string $domainName) : InformationResponse
+    public function setDomainName(string $domainName = null) : InformationResponse
     {
         $this->domainName = $domainName;
         return $this;

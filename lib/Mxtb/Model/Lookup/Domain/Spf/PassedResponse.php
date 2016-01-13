@@ -32,8 +32,9 @@ class PassedResponse extends AbstractResponse
 
     /**
      * @param string|null $info
+     * @return PassedResponse
      */
-    public function setInfo(string $info) : PassedResponse
+    public function setInfo(string $info = null) : PassedResponse
     {
         $this->info = $info;
         return $this;
