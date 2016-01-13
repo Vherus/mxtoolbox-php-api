@@ -65,8 +65,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $primaryNs
+     * @return InformationResponse
      */
-    public function setPrimaryNS(string $primaryNs) : InformationResponse
+    public function setPrimaryNS(string $primaryNs = null) : InformationResponse
     {
         $this->primaryNs = $primaryNs;
         return $this;
@@ -82,8 +83,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $responsibleEmail
+     * @return InformationResponse
      */
-    public function setResponsibleEmail(string $responsibleEmail) : InformationResponse
+    public function setResponsibleEmail(string $responsibleEmail = null) : InformationResponse
     {
         $this->responsibleEmail = $responsibleEmail;
         return $this;
@@ -99,8 +101,9 @@ class InformationResponse extends AbstractInformationResponse
 
     /**
      * @param string|null $ttl
+     * @return InformationResponse
      */
-    public function setTTL(string $ttl) : InformationResponse
+    public function setTTL(string $ttl = null) : InformationResponse
     {
         $this->ttl = $ttl;
         return $this;
