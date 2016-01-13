@@ -14,3 +14,7 @@ I accept contributions via Pull Requests on [Github](https://github.com/Vherus/m
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful.
+
+- **I'm very particular** - Make sure your code is clean, documented, spaced appropriately and follows existing conventions.
+
+- **This package is for PHP 7** - Unless absolutely necessary, ensure you have included all strict typing and return type hinting.
