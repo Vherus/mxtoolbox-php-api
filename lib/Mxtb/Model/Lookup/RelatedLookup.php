@@ -16,6 +16,9 @@ namespace Mxtb\Model\Lookup;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
+use Mxtb\Repository\Lookup\LookupDomainRepository as Domain;
+use Mxtb\Repository\Lookup\LookupNetworkRepository as Network;
+use Mxtb\MxToolbox;
 
 class RelatedLookup
 {
@@ -117,5 +120,61 @@ class RelatedLookup
     {
         $this->commandArgument = $commandArgument;
         return $this;
+    }
+	
+	
+    /**
+     * @param MxToolbox $mxtb
+     * @return mixed|null
+     */
+    public function getLookup(MxToolbox $mxtb)
+    {
+		$shrapnel = explode("/", $this->url);
+		$domain = end($shrapnel);
+		
+		switch($this->command)
+		{
+			case 'mx':
+				$repository = new Domain($mxtb);
+				return $repository->getMx($domain);
+			case 'a':
+				$repository = new Domain($mxtb);
+				return $repository->getA($domain);
+			case 'dns':
+				$repository = new Domain($mxtb);
+				return $repository->getDns($domain);
+			case 'spf':
+				$repository = new Domain($mxtb);
+				return $repository->getSpf($domain);
+			case 'txt':
+				$repository = new Domain($mxtb);
+				return $repository->getTxt($domain);
+			case 'soa':
+				$repository = new Domain($mxtb);
+				return $repository->getSoa($domain);
+			case 'blacklist':
+				$repository = new Network($mxtb);
+				return $repository->getBlacklist($domain);
+			case 'smtp':
+				$repository = new Network($mxtb);
+				return $repository->getSmtp($domain);
+			case 'tcp':
+				$repository = new Network($mxtb);
+				return $repository->getTcp($domain);
+			case 'http':
+				$repository = new Network($mxtb);
+				return $repository->getHttp($domain);
+			case 'https':
+				$repository = new Network($mxtb);
+				return $repository->getHttps($domain);
+			case 'ping':
+				$repository = new Network($mxtb);
+				return $repository->getPing($domain);
+			case 'trace':
+				$repository = new Network($mxtb);
+				return $repository->getTrace($domain);
+			default:
+				return null;
+		}
     }
 }
