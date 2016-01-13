@@ -14,16 +14,25 @@
 namespace Mxtb\Model\Lookup\Domain\Dns;
 
 use Mxtb\Model\Lookup\AbstractResponse;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
 
+/**
+ * TODO Needs work. $additionalInfo should be a collection.
+ */
 abstract class AbstractDNSResponse extends AbstractResponse
 {
     /**
      * @var string
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     protected $info;
 	
     /**
-     * @var string
+     * @var string[]
      */
     protected $additionalInfo = [];
 	

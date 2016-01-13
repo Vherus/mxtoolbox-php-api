@@ -15,45 +15,73 @@ namespace Mxtb\Model\Lookup\Domain\Dns;
 
 use Mxtb\Model\Lookup\Domain\AbstractInformationResponse;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class InformationResponse extends AbstractInformationResponse
 {
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("DomainName")
+     * @Accessor(getter="getDomainName",setter="setDomainName")
      */
     private $domainName;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("IPAddress")
+     * @Accessor(getter="getIPAddress",setter="setIPAddress")
      */
     private $ipAddress;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("TTL")
+     * @Accessor(getter="getTTL",setter="setTTL")
      */
     private $ttl;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Status")
+     * @Accessor(getter="getStatus",setter="setStatus")
      */
     private $status;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Time")
+     * @Accessor(getter="getTime",setter="setTime")
      */
     private $time;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Auth")
+     * @Accessor(getter="getAuth",setter="setAuth")
      */
     private $auth;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Parent")
+     * @Accessor(getter="getParent",setter="setParent")
      */
     private $parent;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Local")
+     * @Accessor(getter="getLocal",setter="setLocal")
      */
     private $local;
 
