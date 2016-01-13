@@ -19,10 +19,15 @@ use JMS\Serializer\Annotation\Accessor;
 use Mxtb\Model\Lookup\Network\Smtp\FailedResponse;
 use Mxtb\Model\Lookup\Network\Smtp\PassedResponse;
 use Mxtb\Model\Lookup\Network\Smtp\InformationResponse;
+use Mxtb\Model\Collection\Passed;
+use Mxtb\Model\Collection\Failed;
+use Mxtb\Model\Collection\Information;
 
 class Smtp extends AbstractNetworkLookup
 {
     /**
+     * @var Failed
+     *
      * @Type("array<Mxtb\Model\Lookup\Network\Smtp\FailedResponse>")
      * @SerializedName("Failed")
      * @Accessor(getter="getFailed",setter="setFailed")
@@ -30,6 +35,8 @@ class Smtp extends AbstractNetworkLookup
     private $failed;
 
     /**
+     * @var Passed
+     *
      * @Type("array<Mxtb\Model\Lookup\Network\Smtp\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
@@ -37,6 +44,8 @@ class Smtp extends AbstractNetworkLookup
     private $passed;
 
     /**
+     * @var Information
+     *
      * @Type("array<Mxtb\Model\Lookup\Network\Smtp\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
@@ -44,7 +53,7 @@ class Smtp extends AbstractNetworkLookup
     private $information;
 
     /**
-     * @return FailedResponse[]|null
+     * @return Failed|null
      */
     public function getFailed()
     {
@@ -57,12 +66,12 @@ class Smtp extends AbstractNetworkLookup
      */
     public function setFailed(array $failed = null) : Smtp
     {
-        $this->failed = $failed;
+        $this->failed = new Failed($failed);
         return $this;
     }
 
     /**
-     * @return PassedResponse[]|null
+     * @return Passed|null
      */
     public function getPassed()
     {
@@ -75,12 +84,12 @@ class Smtp extends AbstractNetworkLookup
      */
     public function setPassed(array $passed = null) : Smtp
     {
-        $this->passed = $passed;
+        $this->passed = new Passed($passed);
         return $this;
     }
 
     /**
-     * @return InformationResponse[]|null
+     * @return Information|null
      */
     public function getInformation()
     {
@@ -93,7 +102,7 @@ class Smtp extends AbstractNetworkLookup
      */
     public function setInformation(array $information = null) : Smtp
     {
-        $this->information = $information;
+        $this->information = new Information($information);
         return $this;
     }
 }

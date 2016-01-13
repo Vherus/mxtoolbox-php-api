@@ -18,10 +18,14 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 use Mxtb\Model\Lookup\Network\Https\PassedResponse;
 use Mxtb\Model\Lookup\Network\Https\InformationResponse;
+use Mxtb\Model\Collection\Passed;
+use Mxtb\Model\Collection\Information;
 
 class Https extends AbstractNetworkLookup
 {
     /**
+     * @var Passed
+     *
      * @Type("array<Mxtb\Model\Lookup\Network\Https\PassedResponse>")
      * @SerializedName("Passed")
      * @Accessor(getter="getPassed",setter="setPassed")
@@ -29,6 +33,8 @@ class Https extends AbstractNetworkLookup
     private $passed;
 
     /**
+     * @var Information
+     *
      * @Type("array<Mxtb\Model\Lookup\Network\Https\InformationResponse>")
      * @SerializedName("Information")
      * @Accessor(getter="getInformation",setter="setInformation")
@@ -36,7 +42,7 @@ class Https extends AbstractNetworkLookup
     private $information;
 
     /**
-     * @return PassedResponse[]|null
+     * @return Passed|null
      */
     public function getPassed()
     {
@@ -49,12 +55,12 @@ class Https extends AbstractNetworkLookup
      */
     public function setPassed(array $passed = null) : Https
     {
-        $this->passed = $passed;
+        $this->passed = new Passed($passed);
         return $this;
     }
 
     /**
-     * @return InformationResponse[]|null
+     * @return Information|null
      */
     public function getInformation()
     {
@@ -67,7 +73,7 @@ class Https extends AbstractNetworkLookup
      */
     public function setInformation(array $information = null) : Https
     {
-        $this->information = $information;
+        $this->information = new Information($information);
         return $this;
     }
 }
