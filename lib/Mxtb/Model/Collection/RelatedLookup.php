@@ -15,4 +15,17 @@ namespace Mxtb\Model\Collection;
 
 use Mxtb\Model\Common\GenericCollection;
 
-class RelatedLookup extends GenericCollection { }
+class RelatedLookup extends GenericCollection
+{
+    /**
+     * @param $key
+     * @return \Mxtb\Model\Lookup\RelatedLookup
+     */
+    public function get($key)
+    {
+        if (is_object($key)) {
+            $key = spl_object_hash($key);
+        }
+        return isset($this->data[$key]) ? $this->data[$key] : null;
+    }
+}
