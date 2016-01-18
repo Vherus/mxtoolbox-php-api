@@ -18,9 +18,6 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 
-/**
- * TODO Needs work. $additionalInfo should be a collection.
- */
 abstract class AbstractDNSResponse extends AbstractResponse
 {
     /**
@@ -33,6 +30,9 @@ abstract class AbstractDNSResponse extends AbstractResponse
 	
     /**
      * @var string[]
+     * @Type("array<string>")
+     * @SerializedName("AdditionalInfo")
+     * @Accessor(getter="getAdditionalInfoArray",setter="setAdditionalInfo")
      */
     protected $additionalInfo = [];
 	

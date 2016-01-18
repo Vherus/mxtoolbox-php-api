@@ -60,7 +60,7 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @param string $key
      * @param string $value
-     * @return $this
+     * @return GenericCollection
      */
     public function add($key, $value) : GenericCollection
     {
