@@ -27,7 +27,7 @@ class BlacklistTest extends \PHPUnit_Framework_TestCase
         $response->setCommand('test info');
         $response->setIsTransitioned(true);
         $response->setCommandArgument('test info');
-        $response->setTimeRecorded('test info');
+        $response->setTimeRecorded('2016-01-18T04:46:02.0961705-06:00');
         $response->setReportingNameServer('test info');
         $response->setTimeToComplete('test info');
         $response->setRelatedIP('test info');
@@ -50,7 +50,7 @@ class BlacklistTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('test info', $response->getCommand());
         $this->assertEquals(true, $response->getIsTransitioned());
         $this->assertEquals('test info', $response->getCommandArgument());
-        $this->assertEquals('test info', $response->getTimeRecorded());
+        $this->assertInstanceOf(\DateTime::class, $response->getTimeRecorded());
         $this->assertEquals('test info', $response->getReportingNameServer());
         $this->assertEquals('test info', $response->getTimeToComplete());
         $this->assertEquals('test info', $response->getRelatedIP());
