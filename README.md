@@ -30,7 +30,7 @@ Once installed, create a file named `composer.json` in your project root directo
 ```
 {
     "require": {
-        "mxtoolbox-php/api": "~1.0"
+        "mxtoolbox-php/api": "~1.1"
     }
 }
 ```
