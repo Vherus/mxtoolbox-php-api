@@ -52,6 +52,7 @@ abstract class AbstractLookup
     protected $commandArgument;
 
     /**
+     * @var \DateTime
      * @Type("string")
      * @SerializedName("TimeRecorded")
      * @Accessor(getter="getTimeRecorded",setter="setTimeRecorded")
@@ -218,7 +219,7 @@ abstract class AbstractLookup
      */
     public function setTimeRecorded(string $timeRecorded = null) : AbstractLookup
     {
-        $this->timeRecorded = $timeRecorded;
+        $this->timeRecorded = new \DateTime($timeRecorded);
         return $this;
     }
 

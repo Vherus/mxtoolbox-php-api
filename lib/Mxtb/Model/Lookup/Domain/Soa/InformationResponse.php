@@ -14,26 +14,41 @@
 namespace Mxtb\Model\Lookup\Domain\Soa;
 
 use Mxtb\Model\Lookup\Domain\AbstractInformationResponse;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
 
 class InformationResponse extends AbstractInformationResponse
 {
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("DomainName")
+     * @Accessor(getter="getDomainName",setter="setDomainName")
      */
     private $domainName;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("PrimaryNS")
+     * @Accessor(getter="getPrimaryNS",setter="setPrimaryNS")
      */
     private $primaryNs;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("ResponsibleEmail")
+     * @Accessor(getter="getResponsibleEmail",setter="setResponsibleEmail")
      */
     private $responsibleEmail;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("TTL")
+     * @Accessor(getter="getTTL",setter="setTTL")
      */
     private $ttl;
 	

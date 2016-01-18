@@ -13,10 +13,17 @@
 
 namespace Mxtb\Model\Lookup\Domain;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 abstract class AbstractInformationResponse
 {
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Type")
+     * @Accessor(getter="getType",setter="setType")
      */
     protected $type;
 

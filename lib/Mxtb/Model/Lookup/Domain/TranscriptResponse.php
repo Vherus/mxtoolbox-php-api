@@ -13,50 +13,81 @@
 
 namespace Mxtb\Model\Lookup\Domain;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class TranscriptResponse
 {
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("TimeStamp")
+     * @Accessor(getter="getTimeStamp",setter="setTimeStamp")
      */
     private $timeStamp;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Depth")
+     * @Accessor(getter="getDepth",setter="setDepth")
      */
     private $depth;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("ServerName")
+     * @Accessor(getter="getServerName",setter="setServerName")
      */
     private $serverName;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("ServerIP")
+     * @Accessor(getter="getServerIP",setter="setServerIP")
      */
     private $serverIP;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Authoritative")
+     * @Accessor(getter="getAuthoritative",setter="setAuthoritative")
      */
     private $authoritative;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("ElapsedTime")
+     * @Accessor(getter="getElapsedTime",setter="setElapsedTime")
      */
     private $elapsedTime;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Result")
+     * @Accessor(getter="getResult",setter="setResult")
      */
     private $result;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Question")
+     * @Accessor(getter="getQuestion",setter="setQuestion")
      */
     private $question;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Answers")
+     * @Accessor(getter="getAnswers",setter="setAnswers")
      */
     private $answers;
 	

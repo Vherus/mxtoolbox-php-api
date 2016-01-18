@@ -13,10 +13,17 @@
  
 namespace Mxtb\Model\Lookup\Domain\Mx;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class ErrorsResponse
 {
     /**
      * @var string
+     * @Type("string")
+     * @SerializedName("Message")
+     * @Accessor(getter="getMessage",setter="setMessage")
      */
     private $message;
 	

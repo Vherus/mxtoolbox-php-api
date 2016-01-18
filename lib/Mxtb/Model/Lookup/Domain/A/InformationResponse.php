@@ -14,21 +14,33 @@
 namespace Mxtb\Model\Lookup\Domain\A;
 
 use Mxtb\Model\Lookup\Domain\AbstractInformationResponse;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
 
 class InformationResponse extends AbstractInformationResponse
 {
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("DomainName")
+     * @Accessor(getter="getDomainName",setter="setDomainName")
      */
     private $domainName;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("IPAddress")
+     * @Accessor(getter="getIPAddress",setter="setIPAddress")
      */
     private $ipAddress;
 
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("TTL")
+     * @Accessor(getter="getTTL",setter="setTTL")
      */
     private $ttl;
 

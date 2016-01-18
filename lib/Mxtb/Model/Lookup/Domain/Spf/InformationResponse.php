@@ -14,26 +14,41 @@
 namespace Mxtb\Model\Lookup\Domain\Spf;
 
 use Mxtb\Model\Lookup\Domain\AbstractInformationResponse;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
 
 class InformationResponse extends AbstractInformationResponse
 {
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Prefix")
+     * @Accessor(getter="getPrefix",setter="setPrefix")
      */
     private $prefix;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Value")
+     * @Accessor(getter="getValue",setter="setValue")
      */
     private $value;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("PrefixDesc")
+     * @Accessor(getter="getPrefixDesc",setter="setPrefixDesc")
      */
     private $prefixDesc;
 	
     /**
      * @var string|null
+     * @Type("string")
+     * @SerializedName("Description")
+     * @Accessor(getter="getDescription",setter="setDescription")
      */
     private $description;
 	
