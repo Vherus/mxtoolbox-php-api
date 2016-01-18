@@ -52,6 +52,7 @@ abstract class AbstractLookup
     protected $commandArgument;
 
     /**
+     * @var \DateTime
      * @Type("string")
      * @SerializedName("TimeRecorded")
      * @Accessor(getter="getTimeRecorded",setter="setTimeRecorded")
