@@ -218,7 +218,7 @@ abstract class AbstractLookup
      */
     public function setTimeRecorded(string $timeRecorded = null) : AbstractLookup
     {
-        $this->timeRecorded = $timeRecorded;
+        $this->timeRecorded = new \DateTime($timeRecorded);
         return $this;
     }
 
