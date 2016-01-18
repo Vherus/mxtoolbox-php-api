@@ -21,7 +21,7 @@ use Mxtb\Model\Monitor\ActionResponse;
 class Monitor
 {
     /**
-     * @var MonitorUid
+     * @var string
      *
      * @Type("string")
      * @SerializedName("MonitorUid")
@@ -30,7 +30,7 @@ class Monitor
     private $monitorUid;
 	
     /**
-     * @var ActionString
+     * @var string
      *
      * @Type("string")
      * @SerializedName("ActionString")
@@ -39,7 +39,7 @@ class Monitor
     private $actionString;
 	
     /**
-     * @var Action
+     * @var ActionResponse
      *
      * @Type("Mxtb\Model\Monitor\ActionResponse")
      * @SerializedName("Action")
@@ -48,7 +48,7 @@ class Monitor
     private $action;
 	
     /**
-     * @var LastTransition
+     * @var \DateTime
      *
      * @Type("string")
      * @SerializedName("LastTransition")
@@ -57,7 +57,7 @@ class Monitor
     private $lastTransition;
 	
     /**
-     * @var LastChecked
+     * @var \DateTime
      *
      * @Type("string")
      * @SerializedName("LastChecked")
@@ -66,7 +66,7 @@ class Monitor
     private $lastChecked;
 	
     /**
-     * @var MxRep
+     * @var string
      *
      * @Type("string")
      * @SerializedName("MxRep")
@@ -75,7 +75,7 @@ class Monitor
     private $mxRep;
 	
     /**
-     * @var HistoryUrl
+     * @var string
      *
      * @Type("string")
      * @SerializedName("HistoryUrl")
@@ -84,7 +84,7 @@ class Monitor
     private $historyUrl;
 	
     /**
-     * @var Name
+     * @var string
      *
      * @Type("string")
      * @SerializedName("Name")
@@ -93,7 +93,7 @@ class Monitor
     private $name;
 	
     /**
-     * @var TimeElapsed
+     * @var string
      *
      * @Type("string")
      * @SerializedName("TimeElapsed")
@@ -102,7 +102,7 @@ class Monitor
     private $timeElapsed;
 
     /**
-     * @var RecordCount
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("RecordCount")
@@ -111,7 +111,7 @@ class Monitor
     private $recordCount;
 	
     /**
-     * @var LarUid
+     * @var string
      *
      * @Type("string")
      * @SerializedName("LarUid")
@@ -120,7 +120,7 @@ class Monitor
     private $larUid;
 
     /**
-     * @var FrequencyInMinutes
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("FrequencyInMinutes")
@@ -129,7 +129,7 @@ class Monitor
     private $frequencyInMinutes;
 
     /**
-     * @var CurrentStatus
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("CurrentStatus")
@@ -138,7 +138,7 @@ class Monitor
     private $currentStatus;
 	
     /**
-     * @var ExpiresIn
+     * @var string
      *
      * @Type("string")
      * @SerializedName("ExpiresIn")
@@ -147,7 +147,7 @@ class Monitor
     private $expiresIn;
 
     /**
-     * @var ExpirationInHours
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("ExpirationInHours")
@@ -156,7 +156,7 @@ class Monitor
     private $expirationInHours;
 
     /**
-     * @var IsActive
+     * @var bool
      *
      * @Type("boolean")
      * @SerializedName("IsActive")
@@ -165,7 +165,7 @@ class Monitor
     private $isActive;
 	
     /**
-     * @var DomainSubscription
+     * @var string
      *
      * @Type("string")
      * @SerializedName("DomainSubscription")
@@ -174,7 +174,7 @@ class Monitor
     private $domainSubscription;
 
     /**
-     * @var Tags
+     * @var string[]
      *
      * @Type("array<string>")
      * @SerializedName("Tags")
@@ -183,7 +183,7 @@ class Monitor
     private $tags;
 
     /**
-     * @var Failing
+     * @var string[]
      *
      * @Type("array<string>")
      * @SerializedName("Failing")
@@ -192,7 +192,7 @@ class Monitor
     private $failing;
 
     /**
-     * @var Warnings
+     * @var string[]
      *
      * @Type("array<string>")
      * @SerializedName("Warnings")
@@ -201,7 +201,7 @@ class Monitor
     private $warnings;
 	
     /**
-     * @var StatusSummary
+     * @var string[]
      *
      * @Type("string")
      * @SerializedName("StatusSummary")
@@ -257,14 +257,14 @@ class Monitor
      * @param ActionResponse|null $action
      * @return Monitor
      */
-    public function setAction(ActionResponse $actionString = null) : Monitor
+    public function setAction(ActionResponse $action = null) : Monitor
     {
         $this->action = $action;
         return $this;
     }
 	
     /**
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getLastTransition()
     {
@@ -277,12 +277,12 @@ class Monitor
      */
     public function setLastTransition(string $lastTransition = null) : Monitor
     {
-        $this->lastTransition = $lastTransition;
+        $this->lastTransition = new \DateTime($lastTransition);
         return $this;
     }
 	
     /**
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getLastChecked()
     {
@@ -295,7 +295,7 @@ class Monitor
      */
     public function setLastChecked(string $lastChecked = null) : Monitor
     {
-        $this->lastChecked = $lastChecked;
+        $this->lastChecked = new \DateTime($lastChecked);
         return $this;
     }
 	

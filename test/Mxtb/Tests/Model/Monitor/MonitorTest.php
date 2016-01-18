@@ -25,8 +25,8 @@ class MonitorTest extends \PHPUnit_Framework_TestCase
         // Act
         $response->setMonitorUid('test info');
         $response->setActionString('test info');
-        $response->setLastTransition('test info');
-        $response->setLastChecked('test info');
+        $response->setLastTransition('2016-01-18T04:46:02.0961705-06:00');
+        $response->setLastChecked('2016-01-18T04:46:02.0961705-06:00');
         $response->setMxRep('test info');
         $response->setHistoryUrl('test info');
         $response->setName('test info');
@@ -47,8 +47,8 @@ class MonitorTest extends \PHPUnit_Framework_TestCase
         // Assert
         $this->assertEquals('test info', $response->getMonitorUid());
         $this->assertEquals('test info', $response->getActionString());
-        $this->assertEquals('test info', $response->getLastTransition());
-        $this->assertEquals('test info', $response->getLastChecked());
+        $this->assertInstanceOf(\DateTime::class, $response->getLastTransition());
+        $this->assertInstanceOf(\DateTime::class, $response->getLastChecked());
         $this->assertEquals('test info', $response->getMxRep());
         $this->assertEquals('test info', $response->getHistoryUrl());
         $this->assertEquals('test info', $response->getName());

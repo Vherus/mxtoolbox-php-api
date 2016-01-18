@@ -26,42 +26,4 @@ class Monitor extends AbstractApi
     {
         return $this->get('monitor');
     }
-
-    /**
-     * Get all items associated with supplied API token with custom headers
-     * @param array $headers
-     * @return mixed
-     */
-    public function withHeaders(array $headers)
-    {
-        return $this->get('monitor', $headers);
-    }
-
-    /**
-     * @param array $tags
-     * @return mixed
-     */
-    public function withTags(array $tags)
-    {
-        $sortedTags = [];
-
-        if (!array_key_exists('Name', $tags)) {
-            foreach ($tags as $tag) {
-                array_push($sortedTags, new Tag($tag));
-            }
-        } else {
-            $sortedTags = $tags;
-        }
-
-        return $this->get('monitor', ['Tags' => $sortedTags]);
-    }
-
-    /**
-     * @param string $command
-     * @return mixed
-     */
-    public function withCommand(string $command)
-    {
-        return $this->get('monitor', ['Command' => $command]);
-    }
 }

@@ -20,7 +20,7 @@ use JMS\Serializer\Annotation\Accessor;
 class ActionResponse
 {
     /**
-     * @var ActionString
+     * @var string
      *
      * @Type("string")
      * @SerializedName("ActionString")
@@ -29,7 +29,7 @@ class ActionResponse
     private $actionString;
 
     /**
-     * @var Command
+     * @var string
      *
      * @Type("string")
      * @SerializedName("Command")
@@ -38,7 +38,7 @@ class ActionResponse
     private $command;
 
     /**
-     * @var Address
+     * @var string
      *
      * @Type("string")
      * @SerializedName("Address")
@@ -47,7 +47,7 @@ class ActionResponse
     private $address;
 
     /**
-     * @var IsAll
+     * @var bool
      *
      * @Type("boolean")
      * @SerializedName("IsAll")
@@ -56,7 +56,7 @@ class ActionResponse
     private $isAll;
 
     /**
-     * @var Threshold
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("Threshold")
@@ -65,7 +65,7 @@ class ActionResponse
     private $threshold;
 
     /**
-     * @var AllowPrivateIP
+     * @var bool
      *
      * @Type("boolean")
      * @SerializedName("AllowPrivateIP")
@@ -74,7 +74,7 @@ class ActionResponse
     private $allowPrivateIP;
 
     /**
-     * @var IsMonitorable
+     * @var bool
      *
      * @Type("boolean")
      * @SerializedName("IsMonitorable")
@@ -83,7 +83,7 @@ class ActionResponse
     private $isMonitorable;
 
     /**
-     * @var LarArgument
+     * @var string
      *
      * @Type("string")
      * @SerializedName("LarArgument")
@@ -92,7 +92,7 @@ class ActionResponse
     private $larArgument;
 
     /**
-     * @var HttpRegex
+     * @var string
      *
      * @Type("string")
      * @SerializedName("HttpRegex")
@@ -101,7 +101,7 @@ class ActionResponse
     private $httpRegex;
 
     /**
-     * @var TcpPort
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("TcpPort")
@@ -110,7 +110,7 @@ class ActionResponse
     private $tcpPort;
 
     /**
-     * @var SmtpPort
+     * @var int
      *
      * @Type("integer")
      * @SerializedName("SmtpPort")
@@ -119,7 +119,7 @@ class ActionResponse
     private $smtpPort;
 
     /**
-     * @var MailflowIp
+     * @var string
      *
      * @Type("string")
      * @SerializedName("MailflowIp")
@@ -128,7 +128,7 @@ class ActionResponse
     private $mailflowIp;
 
     /**
-     * @var SpecialServer
+     * @var string
      *
      * @Type("string")
      * @SerializedName("SpecialServer")
@@ -137,7 +137,7 @@ class ActionResponse
     private $specialServer;
 
     /**
-     * @var CommandParts
+     * @var string[]
      *
      * @Type("array<string>")
      * @SerializedName("CommandParts")
