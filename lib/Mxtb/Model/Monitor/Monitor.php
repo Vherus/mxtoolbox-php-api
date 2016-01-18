@@ -24,7 +24,7 @@ class Monitor
      * @var string
      *
      * @Type("string")
-     * @SerializedName("MonitorUid")
+     * @SerializedName("MonitorUID")
      * @Accessor(getter="getMonitorUid",setter="setMonitorUid")
      */
     private $monitorUid;
@@ -114,7 +114,7 @@ class Monitor
      * @var string
      *
      * @Type("string")
-     * @SerializedName("LarUid")
+     * @SerializedName("LarUID")
      * @Accessor(getter="getLarUid",setter="setLarUid")
      */
     private $larUid;

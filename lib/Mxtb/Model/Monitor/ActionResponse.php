@@ -95,7 +95,7 @@ class ActionResponse
      * @var string
      *
      * @Type("string")
-     * @SerializedName("HttpRegex")
+     * @SerializedName("HTTP_Regex")
      * @Accessor(getter="getHttpRegex",setter="setHttpRegex")
      */
     private $httpRegex;
@@ -104,7 +104,7 @@ class ActionResponse
      * @var int
      *
      * @Type("integer")
-     * @SerializedName("TcpPort")
+     * @SerializedName("TCP_Port")
      * @Accessor(getter="getTcpPort",setter="setTcpPort")
      */
     private $tcpPort;
@@ -113,7 +113,7 @@ class ActionResponse
      * @var int
      *
      * @Type("integer")
-     * @SerializedName("SmtpPort")
+     * @SerializedName("SMTP_Port")
      * @Accessor(getter="getSmtpPort",setter="setSmtpPort")
      */
     private $smtpPort;
@@ -122,7 +122,7 @@ class ActionResponse
      * @var string
      *
      * @Type("string")
-     * @SerializedName("MailflowIp")
+     * @SerializedName("MAILFLOW_IP")
      * @Accessor(getter="getMailflowIp",setter="setMailflowIp")
      */
     private $mailflowIp;
