@@ -7,8 +7,8 @@ A PHP wrapper for use with the [MxToolbox API](http://mxtoolbox.com/productinfo/
 
 Influenced by Michael Roterman's TMDB PHP API Wrapper (https://github.com/php-tmdb/api)
 
-Currently the only method available within this package is the Lookup method. There may be some response types missing (Warnings, primarily) that
-we'd appreciate the community contributing to or at least letting us know what the properties for those objects are.
+Note: There may be some response types missing (Warnings, primarily). This is due to lack of documentation from MxToolbox on the available
+properties within those objects. Please let us know if you can shed some light on this.
 
 ## Installation
 
@@ -58,7 +58,7 @@ The wrapper is set to use HTTPS by default. To force HTTP, pass false as an opti
 $mxtb = new \Mxtb\MxToolbox($apiToken, false);
 ```
 
-## Using the API
+## Using the API - the Lookup method
 
 We've tried to keep the usage of this package as intuitive as possible, so you should be able to guess the method to use in most cases.
 
@@ -153,6 +153,26 @@ $newLookup = $related->get(1)->getLookup($mxtb);
 //$newLookup now contains an entirely new result set depending on what the command was in the related
 //lookup at index 1 in RelatedLookup collection
 ```
+
+## Using the API - the Monitor method
+
+Using the Monitor method will return all of your active monitors in the Monitors dashboard of MxToolbox
+
+```php
+$monitorRequest = new Monitor($mxtb);
+$monitors = $monitorRequest->all(); // returns a Monitor collection (extends GenericCollection)
+```
+
+You can use the same technique as with the lookups to filter the monitors you wish to use
+
+```php
+$onlyBlacklists = $monitors->withCommand('blacklist');
+
+echo '<pre>';
+var_dump($onlyBlacklists);
+```
+
+You can, of course, create your own filters to use. If you create a good filter, please feel free to request that it be included (with full credit) in this package!
 
 ## Contributing
 

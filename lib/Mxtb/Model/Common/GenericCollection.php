@@ -78,6 +78,14 @@ class GenericCollection implements \ArrayAccess, \IteratorAggregate, \Countable
     }
 
     /**
+     * @param $key
+     */
+    public function remove($key)
+    {
+        unset($this->data[$key]);
+    }
+
+    /**
      * Iterates over each key value pair in the collection passing them to the Closure. If the  Closure function returns
      * true, the current value from input is returned into the result Collection.  The Closure must accept three
      * parameters: (string) $key, (string) $value and return Boolean TRUE or FALSE for each value.

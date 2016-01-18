@@ -14,16 +14,24 @@
 namespace Mxtb\Api\Monitor;
 
 use Mxtb\Api\AbstractApi;
-use Mxtb\Model\Common\Tag;
+use Mxtb\Model\Monitor\Monitor as Model;
+use Mxtb\Model\Collection\Monitor as Collection;
 
 class Monitor extends AbstractApi
 {
     /**
      * Get all monitored items associated with supplied API token
-     * @return mixed
+     * @return Collection
      */
     public function all()
     {
-        return $this->get('monitor');
+        $arr = [];
+        $monitors = json_decode($this->get('monitor'), true);
+
+        foreach ($monitors as $monitor) {
+            array_push($arr, $this->deserialize(json_encode($monitor), Model::class));
+        }
+
+        return new Collection($arr);
     }
 }
