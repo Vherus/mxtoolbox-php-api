@@ -21,7 +21,7 @@ composer require mxtoolbox-php/api
 Or by adding the following to your require block
 
 ```
-"mxtoolbox-php/api": "~1.0"
+"mxtoolbox-php/api": "~1.1"
 ```
 
 If you're new to composer, install it via [getcomposer.org](http://getcomposer.org)
