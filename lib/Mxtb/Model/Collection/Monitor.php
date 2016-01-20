@@ -32,4 +32,20 @@ class Monitor extends GenericCollection
             }
         });
     }
+
+    /**
+     * Return result with UID
+     * @param string $uid
+     * @return GenericCollection|static
+     */
+    public function withUid(string $uid)
+    {
+        return $this->filter(function ($key, $value) use ($uid) {
+            if ($value->getMonitorUid() == $uid) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+    }
 }

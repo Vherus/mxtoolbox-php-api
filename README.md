@@ -39,7 +39,7 @@ Then in a terminal (or cmd) in your project root, run `composer install` to down
 Next, include composers autoloader so you don't have to require each class
 
 ```php
-require_once dirname(__DIR__).'/vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 ```
 
 ## Getting Started
@@ -92,12 +92,12 @@ namespace TestingMxtb;
 
 use Mxtb\ApiToken;
 use Mxtb\MxToolbox;
-use Mxtb\Repository\Lookup\LookupNetworkRepository;
+use Mxtb\Repository\Lookup\NetworkRepository;
 
-require '../vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 $mxtb = new MxToolbox(new ApiToken(), false);
-$repository = new LookupNetworkRepository($mxtb);
+$repository = new NetworkRepository($mxtb);
 $blacklist = $repository->getBlacklist('example.com');
 
 $passed = $blacklist->getPassed();
@@ -142,7 +142,7 @@ $passed->sort(function($a, $b) {
 }
 ```
 
-## Request a related lookup
+## Lookup - Request a related lookup
 
 You can quickly send a new request from a related lookup within your RelatedLookup collection. For example:
 
@@ -156,50 +156,64 @@ $newLookup = $related->get(1)->getLookup($mxtb);
 
 ## Using the API - the Monitor method
 
-Using the Monitor method will return all of your active monitors in the Monitors dashboard of MxToolbox
+Use the Monitor repository to retrieve data on your monitors from within MxToolbox
 
 ```php
-$monitorRequest = new Monitor($mxtb);
-$monitors = $monitorRequest->all(); // returns a Monitor collection filled with Monitor models (extends GenericCollection)
-$specific = $monitorRequest->byUid('some-uid-here'); // returns a Monitor model
+$repository = new Mxtb\Repository\Monitor\MonitorRepository($mxtb);
 ```
+
+The MonitorRepository constructor will collect the information on your repositories and store them so you can work with the data safely
+
+```php
+$all = $repository->all(); // Returns a collection of all your monitors
+
+$specific = $repository->withUid('some-UID-here'); // If you know a UID
+```
+
+## Monitor - Create / Delete
+
+You can create and delete monitors safely within the repository before committing any changes to MxToolbox
+
+```php
+$repository->create('dns', 'github.com');
+
+$repository->delete($repository->all()[2]);
+
+$repository->deleteByUid('some-UID-here');
+```
+
+You can do this as many times as you wish before applying any changes. Once you're happy, simply save the changes you've made
+
+```php
+$repository->save();
+```
+
+All changes will be saved to your MxToolbox account, the collection in the repository will be reloaded to reflect the changes
+and the create / delete queues will be cleared.
+
+You can enforce immediate changes when creating / deleting by passing true as a final parameter. This will execute the
+create / delete immediately and will not add anything to the queue. The collection will be reloaded to reflect the changes.
+
+```php
+$repository->create('dns', 'github.com', true);
+```
+
+If, for any reason, you want to reload the collection of monitors in the repository you can do so with the reload method
+
+```php
+$repository->reload();
+```
+
+## Monitor - Filters
 
 You can use the same technique as with the lookups to filter the monitors you wish to use
 
 ```php
-$onlyBlacklists = $monitors->withCommand('blacklist');
-
-echo '<pre>';
-var_dump($onlyBlacklists);
+$onlyBlacklists = $repository->all()->withCommand('blacklist');
+$onlyWithUid = $repository->all()->withUid('some-UID-here');
 ```
 
 You can, of course, create your own filters to use. If you create a useful filter, please feel free to request that it be included (with full credit) in this package!
-
-## Monitor - Create / Delete
-
-You can add a new monitor to your MxToolbox account by supplying the command and the URL to monitor
-
-```php
-$monitor = new Monitor($mxtb);
-$monitor->create('dns', 'github.com');
-```
-
-It's also possible to delete a monitor by passing the monitor model to the remove method of the Monitor API
-
-```php
-$monitor = new Monitor($mxtb);
-$unwanted = $monitor->all()[2]; // See below for explanation of this
-$monitor->remove($unwanted);
-```
-
-Alternatively, you can remove a monitor by UID
-
-```php
-$unwanted = $monitor->all()[2];
-$monitor->removeByUid($unwanted->getMonitorUid()); // You can pass the UID as a string directly if you know it
-```
-
-The GenericCollection class (which all collections extend) can be accessed both as an array and an object. You can use that information to decide how you'll manipulate the data on your end.
 
 ## Contributing
 
