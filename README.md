@@ -160,7 +160,8 @@ Using the Monitor method will return all of your active monitors in the Monitors
 
 ```php
 $monitorRequest = new Monitor($mxtb);
-$monitors = $monitorRequest->all(); // returns a Monitor collection (extends GenericCollection)
+$monitors = $monitorRequest->all(); // returns a Monitor collection filled with Monitor models (extends GenericCollection)
+$specific = $monitorRequest->byUid('some-uid-here'); // returns a Monitor model
 ```
 
 You can use the same technique as with the lookups to filter the monitors you wish to use
@@ -172,7 +173,33 @@ echo '<pre>';
 var_dump($onlyBlacklists);
 ```
 
-You can, of course, create your own filters to use. If you create a good filter, please feel free to request that it be included (with full credit) in this package!
+You can, of course, create your own filters to use. If you create a useful filter, please feel free to request that it be included (with full credit) in this package!
+
+## Monitor - Create / Delete
+
+You can add a new monitor to your MxToolbox account by supplying the command and the URL to monitor
+
+```php
+$monitor = new Monitor($mxtb);
+$monitor->create('dns', 'github.com');
+```
+
+It's also possible to delete a monitor by passing the monitor model to the remove method of the Monitor API
+
+```php
+$monitor = new Monitor($mxtb);
+$unwanted = $monitor->all()[2]; // See below for explanation of this
+$monitor->remove($unwanted);
+```
+
+Alternatively, you can remove a monitor by UID
+
+```php
+$unwanted = $monitor->all()[2]; // See blow for explanation of this
+$monitor->removeByUid($unwanted->getMonitorUid()); // You can pass the UID as a string directly if you know it
+```
+
+The GenericCollection class (which all collections extend) can be accessed both as an array and an object. You can use that information to decide how you'll manipulate the data on your end.
 
 ## Contributing
 

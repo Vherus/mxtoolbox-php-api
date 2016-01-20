@@ -23,7 +23,7 @@ class Monitor extends AbstractApi
      * Get all monitored items associated with supplied API token
      * @return Collection
      */
-    public function all()
+    public function all() : Collection
     {
         $arr = [];
         $monitors = json_decode($this->get('monitor'), true);
@@ -33,5 +33,56 @@ class Monitor extends AbstractApi
         }
 
         return new Collection($arr);
+    }
+
+    /**
+     * Get a monitor by UID
+     * @param string $uid
+     * @param array $headers
+     * @return array|\JMS\Serializer\scalar|mixed|object
+     */
+    public function byUid(string $uid, array $headers = [])
+    {
+        $json = $this->get('monitor/{' . $uid . '}', $headers);
+        return $this->deserialize($json, Model::class);
+    }
+
+    /**
+     * Create a new monitor
+     * @param string $command The monitor command to use (such as dns, blacklist etc.)
+     * @param string $url The URL to create a monitor for
+     * @param array $tags
+     * @return Monitor
+     */
+    public function create(string $command, string $url, array $tags = []) : Monitor
+    {
+        $data = [
+            'ActionString' => $command . ':' . $url,
+            'Tags' => $tags
+        ];
+
+        $this->post('monitor', $data);
+
+        return $this;
+    }
+
+    /**
+     * @param string $uid
+     * @return Monitor
+     */
+    public function remove(Model $monitor) : Monitor
+    {
+        $this->delete('monitor/{' . $monitor->getMonitorUid() . '}');
+        return $this;
+    }
+
+    /**
+     * @param string $uid
+     * @return Monitor
+     */
+    public function removeByUid(string $uid) : Monitor
+    {
+        $this->delete('monitor/{' . $uid . '}');
+        return $this;
     }
 }
