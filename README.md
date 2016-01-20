@@ -195,7 +195,7 @@ $monitor->remove($unwanted);
 Alternatively, you can remove a monitor by UID
 
 ```php
-$unwanted = $monitor->all()[2]; 
+$unwanted = $monitor->all()[2];
 $monitor->removeByUid($unwanted->getMonitorUid()); // You can pass the UID as a string directly if you know it
 ```
 
