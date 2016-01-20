@@ -85,63 +85,6 @@ you should assume there is a getUid() method on the associated model. For exampl
 $uid = $blacklist->getUid();
 ```
 
-## Working example
-
-```php
-namespace TestingMxtb;
-
-use Mxtb\ApiToken;
-use Mxtb\MxToolbox;
-use Mxtb\Repository\Lookup\NetworkRepository;
-
-require dirname(__DIR__) . '/vendor/autoload.php';
-
-$mxtb = new MxToolbox(new ApiToken(), false);
-$repository = new NetworkRepository($mxtb);
-$blacklist = $repository->getBlacklist('example.com');
-
-$passed = $blacklist->getPassed();
-
-echo '<pre>';
-var_dump($passed);
-```
-
-## Filtering the collections
-
-It's possible for you to easily filter the collections you receive (such as Passed, Failed etc.) thanks to the GenericCollection class. The filter method accepts
-a custom closure function, but we have included some common filters in the collections themselves. Some examples below:
-
-```php
-//Only collect the Passed objects that do not have a null or empty string DelistURL
-$passed = $blacklist->getPassed()->delistUrlNotNullOrEmpty();
-
-//Only collect Passed objects that do not have a null DelistURL, but accept empty strings
-$passed = $blacklist->getPassed()->delistUrlNotNull();
-
-//Only collect Passed objects where the Name is 'Example Name'
-$passed = $blacklist->getPassed()->filter(function($key, $value) {
-    if ($value->getName() == 'Example Name')  {
-        return true;
-    } else {
-        return false;
-    }
-});
-```
-
-## Sorting the collections
-
-You can easily sort collections using the same method as PHP's standard [uasort](http://php.net/uasort) function attached to the actual collection
-
-```php
-$passed->sort(function($a, $b) {
-   if ($a->getId() == $b->getId()) {
-       return 0;
-   }
-
-   return ($a->getId() < $b->getId()) ? -1 : 1;
-}
-```
-
 ## Lookup - Request a related lookup
 
 You can quickly send a new request from a related lookup within your RelatedLookup collection. For example:
@@ -214,6 +157,65 @@ $onlyWithUid = $repository->all()->withUid('some-UID-here');
 ```
 
 You can, of course, create your own filters to use. If you create a useful filter, please feel free to request that it be included (with full credit) in this package!
+
+## Filtering the collections
+
+It's possible for you to easily filter the collections you receive (such as Passed, Failed, Monitor etc.) thanks to the GenericCollection class. The filter method accepts
+a custom closure, but we have included some common filters in the collections themselves. Some examples below:
+
+```php
+//Only collect the Passed objects that do not have a null or empty string DelistURL
+$passed = $blacklist->getPassed()->delistUrlNotNullOrEmpty();
+
+//Only collect Passed objects that do not have a null DelistURL, but accept empty strings
+$passed = $blacklist->getPassed()->delistUrlNotNull();
+
+//Only collect Passed objects where the Name is 'Example Name'
+$passed = $blacklist->getPassed()->filter(function($key, $value) {
+    if ($value->getName() == 'Example Name')  {
+        return true;
+    }
+});
+
+// Monitor collections
+$onlyBlacklists = $repository->all()->withCommand('blacklist');
+$onlyWithUid = $repository->all()->withUid('some-UID-here');
+```
+
+## Sorting the collections
+
+You can easily sort collections using the same method as PHP's standard [uasort](http://php.net/uasort) function attached to the actual collection
+
+```php
+$passed->sort(function($a, $b) {
+   if ($a->getId() == $b->getId()) {
+       return 0;
+   }
+
+   return ($a->getId() < $b->getId()) ? -1 : 1;
+}
+```
+
+## Working example
+
+```php
+namespace TestingMxtb;
+
+use Mxtb\ApiToken;
+use Mxtb\MxToolbox;
+use Mxtb\Repository\Lookup\NetworkRepository;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+$mxtb = new MxToolbox(new ApiToken(), false);
+$repository = new NetworkRepository($mxtb);
+$blacklist = $repository->getBlacklist('example.com');
+
+$passed = $blacklist->getPassed();
+
+echo '<pre>';
+var_dump($passed);
+```
 
 ## Contributing
 
