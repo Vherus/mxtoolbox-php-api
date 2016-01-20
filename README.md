@@ -21,7 +21,7 @@ composer require mxtoolbox-php/api
 Or by adding the following to your require block
 
 ```
-"mxtoolbox-php/api": "~1.1"
+"mxtoolbox-php/api": "~1.2"
 ```
 
 If you're new to composer, install it via [getcomposer.org](http://getcomposer.org)
@@ -30,7 +30,7 @@ Once installed, create a file named `composer.json` in your project root directo
 ```
 {
     "require": {
-        "mxtoolbox-php/api": "~1.1"
+        "mxtoolbox-php/api": "~1.2"
     }
 }
 ```
