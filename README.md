@@ -131,7 +131,7 @@ If you want to clear the changes you've made, call the clear method
 $repository->clear();
 ```
 
-You can do this as many times as you wish before applying any changes. Once you're happy, simply save the changes you've made
+You can change things as much as you like before saving anything. Once you're happy, simply save the changes you've made
 
 ```php
 $repository->save();
