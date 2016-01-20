@@ -125,6 +125,12 @@ $repository->delete($repository->all()[2]);
 $repository->deleteByUid('some-UID-here');
 ```
 
+If you want to clear the changes you've made, call the clear method
+
+```php
+$repository->clear();
+```
+
 You can do this as many times as you wish before applying any changes. Once you're happy, simply save the changes you've made
 
 ```php
