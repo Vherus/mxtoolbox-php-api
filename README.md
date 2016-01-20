@@ -65,7 +65,7 @@ We've tried to keep the usage of this package as intuitive as possible, so you s
 First, let's create a repository for the API method we want to use (Lookup or Monitor)
 
 ```php
-$repository = new Mxtb\Repository\Lookup\LookupNetworkRepository($mxtb);
+$repository = new Mxtb\Repository\Lookup\NetworkRepository($mxtb);
 ```
 
 Now we can decide which lookup we want to use. For example, if we want to lookup blacklisting for a domain:
