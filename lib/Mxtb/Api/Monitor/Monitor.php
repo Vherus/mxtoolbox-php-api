@@ -23,7 +23,7 @@ class Monitor extends AbstractApi
      * Get all monitored items associated with supplied API token
      * @return Collection
      */
-    public function all()
+    public function all() : Collection
     {
         $arr = [];
         $monitors = json_decode($this->get('monitor'), true);
@@ -33,5 +33,28 @@ class Monitor extends AbstractApi
         }
 
         return new Collection($arr);
+    }
+
+    /**
+     * Create a new monitor
+     * @param array $data
+     * @return Monitor
+     */
+    public function create(array $data) : Monitor
+    {
+        $this->post('monitor', $data);
+
+        return $this;
+    }
+
+    /**
+     * Remove monitor
+     * @param Model $monitor
+     * @return Monitor
+     */
+    public function remove(Model $monitor) : Monitor
+    {
+        $this->delete('monitor/{' . $monitor->getMonitorUid() . '}');
+        return $this;
     }
 }

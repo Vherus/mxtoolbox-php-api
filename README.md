@@ -21,7 +21,7 @@ composer require mxtoolbox-php/api
 Or by adding the following to your require block
 
 ```
-"mxtoolbox-php/api": "~1.0"
+"mxtoolbox-php/api": "~1.2"
 ```
 
 If you're new to composer, install it via [getcomposer.org](http://getcomposer.org)
@@ -30,7 +30,7 @@ Once installed, create a file named `composer.json` in your project root directo
 ```
 {
     "require": {
-        "mxtoolbox-php/api": "~1.0"
+        "mxtoolbox-php/api": "~1.2"
     }
 }
 ```
@@ -39,7 +39,7 @@ Then in a terminal (or cmd) in your project root, run `composer install` to down
 Next, include composers autoloader so you don't have to require each class
 
 ```php
-require_once dirname(__DIR__).'/vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 ```
 
 ## Getting Started
@@ -65,7 +65,7 @@ We've tried to keep the usage of this package as intuitive as possible, so you s
 First, let's create a repository for the API method we want to use (Lookup or Monitor)
 
 ```php
-$repository = new Mxtb\Repository\Lookup\LookupNetworkRepository($mxtb);
+$repository = new Mxtb\Repository\Lookup\NetworkRepository($mxtb);
 ```
 
 Now we can decide which lookup we want to use. For example, if we want to lookup blacklisting for a domain:
@@ -85,31 +85,89 @@ you should assume there is a getUid() method on the associated model. For exampl
 $uid = $blacklist->getUid();
 ```
 
-## Working example
+## Lookup - Request a related lookup
+
+You can quickly send a new request from a related lookup within your RelatedLookup collection. For example:
 
 ```php
-namespace TestingMxtb;
+$related = $blacklist->getRelatedLookups();
+$newLookup = $related->get(1)->getLookup($mxtb);
 
-use Mxtb\ApiToken;
-use Mxtb\MxToolbox;
-use Mxtb\Repository\Lookup\LookupNetworkRepository;
-
-require '../vendor/autoload.php';
-
-$mxtb = new MxToolbox(new ApiToken(), false);
-$repository = new LookupNetworkRepository($mxtb);
-$blacklist = $repository->getBlacklist('example.com');
-
-$passed = $blacklist->getPassed();
-
-echo '<pre>';
-var_dump($passed);
+//$newLookup now contains an entirely new result set depending on what the command was in the related
+//lookup at index 1 in RelatedLookup collection
 ```
+
+## Using the API - the Monitor method
+
+Use the Monitor repository to retrieve data on your monitors from within MxToolbox
+
+```php
+$repository = new Mxtb\Repository\Monitor\MonitorRepository($mxtb);
+```
+
+The MonitorRepository constructor will collect the information on your repositories and store them so you can work with the data safely
+
+```php
+$all = $repository->all(); // Returns a collection of all your monitors
+
+$specific = $repository->withUid('some-UID-here'); // If you know a UID
+```
+
+## Monitor - Create / Delete
+
+You can create and delete monitors safely within the repository before committing any changes to MxToolbox
+
+```php
+$repository->create('dns', 'github.com');
+
+$repository->delete($repository->all()[2]);
+
+$repository->deleteByUid('some-UID-here');
+```
+
+If you want to clear the changes you've made, call the clear method
+
+```php
+$repository->clear();
+```
+
+You can change things as much as you like before saving anything. Once you're happy, simply save the changes you've made
+
+```php
+$repository->save();
+```
+
+All changes will be saved to your MxToolbox account, the collection in the repository will be reloaded to reflect the changes
+and the create / delete queues will be cleared.
+
+You can enforce immediate changes when creating / deleting by passing true as a final parameter. This will execute the
+create / delete immediately and will not add anything to the queue. The collection will be reloaded to reflect the changes.
+
+```php
+$repository->create('dns', 'github.com', true);
+```
+
+If, for any reason, you want to reload the collection of monitors in the repository you can do so with the reload method
+
+```php
+$repository->reload();
+```
+
+## Monitor - Filters
+
+You can use the same technique as with the lookups to filter the monitors you wish to use
+
+```php
+$onlyBlacklists = $repository->all()->withCommand('blacklist');
+$onlyWithUid = $repository->all()->withUid('some-UID-here');
+```
+
+You can, of course, create your own filters to use. If you create a useful filter, please feel free to request that it be included (with full credit) in this package!
 
 ## Filtering the collections
 
-It's possible for you to easily filter the collections you receive (such as Passed, Failed etc.) thanks to the GenericCollection class. The filter method accepts
-a custom closure function, but we have included some common filters in the collections themselves. Some examples below:
+It's possible for you to easily filter the collections you receive (such as Passed, Failed, Monitor etc.) thanks to the GenericCollection class. The filter method accepts
+a custom closure, but we have included some common filters in the collections themselves. Some examples below:
 
 ```php
 //Only collect the Passed objects that do not have a null or empty string DelistURL
@@ -122,10 +180,12 @@ $passed = $blacklist->getPassed()->delistUrlNotNull();
 $passed = $blacklist->getPassed()->filter(function($key, $value) {
     if ($value->getName() == 'Example Name')  {
         return true;
-    } else {
-        return false;
     }
 });
+
+// Monitor collections
+$onlyBlacklists = $repository->all()->withCommand('blacklist');
+$onlyWithUid = $repository->all()->withUid('some-UID-here');
 ```
 
 ## Sorting the collections
@@ -142,37 +202,26 @@ $passed->sort(function($a, $b) {
 }
 ```
 
-## Request a related lookup
-
-You can quickly send a new request from a related lookup within your RelatedLookup collection. For example:
+## Working example
 
 ```php
-$related = $blacklist->getRelatedLookups();
-$newLookup = $related->get(1)->getLookup($mxtb);
+namespace TestingMxtb;
 
-//$newLookup now contains an entirely new result set depending on what the command was in the related
-//lookup at index 1 in RelatedLookup collection
-```
+use Mxtb\ApiToken;
+use Mxtb\MxToolbox;
+use Mxtb\Repository\Lookup\NetworkRepository;
 
-## Using the API - the Monitor method
+require dirname(__DIR__) . '/vendor/autoload.php';
 
-Using the Monitor method will return all of your active monitors in the Monitors dashboard of MxToolbox
+$mxtb = new MxToolbox(new ApiToken(), false);
+$repository = new NetworkRepository($mxtb);
+$blacklist = $repository->getBlacklist('example.com');
 
-```php
-$monitorRequest = new Monitor($mxtb);
-$monitors = $monitorRequest->all(); // returns a Monitor collection (extends GenericCollection)
-```
-
-You can use the same technique as with the lookups to filter the monitors you wish to use
-
-```php
-$onlyBlacklists = $monitors->withCommand('blacklist');
+$passed = $blacklist->getPassed();
 
 echo '<pre>';
-var_dump($onlyBlacklists);
+var_dump($passed);
 ```
-
-You can, of course, create your own filters to use. If you create a good filter, please feel free to request that it be included (with full credit) in this package!
 
 ## Contributing
 

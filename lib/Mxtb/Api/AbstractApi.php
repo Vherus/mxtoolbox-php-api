@@ -53,6 +53,28 @@ abstract class AbstractApi
     }
 
     /**
+     * Send a POST request
+     * @param string $path
+     * @param array $data
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    protected function post(string $path, array $data = [])
+    {
+        return $this->client->post($path, ['json' => $data]);
+    }
+
+    /**
+     * Send a DELETE request
+     * @param string $path
+     * @param array $headers
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    protected function delete(string $path, array $headers = [])
+    {
+        return $this->client->delete($path, $headers);
+    }
+
+    /**
      * @param $jsonData
      * @param string $class
      * @return array|\JMS\Serializer\scalar|mixed|object
