@@ -454,7 +454,7 @@ class History
      * @param string $transitionedOn
      * @return History
      */
-    public function setTransitionedOn(string $transitionedOn = null)
+    public function setTransitionedOn(string $transitionedOn = null) : History
     {
         $this->transitionedOn = new \DateTime($transitionedOn);
         return $this;
@@ -472,7 +472,7 @@ class History
      * @param TransitionedSubaction $transitionedSubaction
      * @return History
      */
-    public function setTransitionedSubaction($transitionedSubaction)
+    public function setTransitionedSubaction(TransitionedSubaction $transitionedSubaction = null) : History
     {
         $this->transitionedSubaction = $transitionedSubaction;
         return $this;
