@@ -22,7 +22,7 @@ class InformationResponse extends AbstractInformationResponse
 {
     /**
      * @var string|null
-     * @var string|null
+     *
      * @Type("string")
      * @SerializedName("DomainName")
      * @Accessor(getter="getDomainName",setter="setDomainName")
@@ -31,7 +31,7 @@ class InformationResponse extends AbstractInformationResponse
 	
     /**
      * @var string|null
-     * @var string|null
+     *
      * @Type("string")
      * @SerializedName("TTL")
      * @Accessor(getter="getTTL",setter="setTTL")
@@ -40,7 +40,7 @@ class InformationResponse extends AbstractInformationResponse
 	
     /**
      * @var string|null
-     * @var string|null
+     *
      * @Type("string")
      * @SerializedName("Record")
      * @Accessor(getter="getRecord",setter="setRecord")

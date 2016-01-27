@@ -13,7 +13,7 @@
  
 namespace Mxtb\Model\Lookup\Network\Https;
 
-use Mxtb\Model\Lookup\AbstractResponse;
+use Mxtb\Model\Common\AbstractResponse;
 
 class PassedResponse extends AbstractResponse
 {

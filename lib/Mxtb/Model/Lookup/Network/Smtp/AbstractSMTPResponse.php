@@ -14,7 +14,7 @@
 
 namespace Mxtb\Model\Lookup\Network\Smtp;
 
-use Mxtb\Model\Lookup\AbstractResponse;
+use Mxtb\Model\Common\AbstractResponse;
 
 abstract class AbstractSMTPResponse extends AbstractResponse
 {

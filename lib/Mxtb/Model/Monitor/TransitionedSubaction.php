@@ -7,23 +7,30 @@
  * file that was distributed with this source code.
  *
  * @package mxtoolbox-php-api
- * @author Darien Livermore <daz.livermore@hotmail.com>
+ * @author Nathan King <nkvherus@gmail.com>
  * @version dev
  */
- 
-namespace Mxtb\Model\Lookup\Network\Tcp;
+
+namespace Mxtb\Model\Monitor;
 
 use Mxtb\Model\Common\AbstractResponse;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
 
-class PassedResponse extends AbstractResponse
+class TransitionedSubaction extends AbstractResponse
 {
     /**
-     * @var string|null
+     * @var string
+     *
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     private $info;
-	
+
     /**
-     * @return string|null
+     * @return string
      */
     public function getInfo() : string
     {
@@ -31,9 +38,10 @@ class PassedResponse extends AbstractResponse
     }
 
     /**
-     * @param string|null $info
+     * @param string $info
+     * @return TransitionedSubaction
      */
-    public function setInfo(string $info) : PassedResponse
+    public function setInfo($info) : TransitionedSubaction
     {
         $this->info = $info;
         return $this;

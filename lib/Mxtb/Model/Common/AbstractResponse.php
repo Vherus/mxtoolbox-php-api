@@ -11,7 +11,7 @@
  * @version dev
  */
 
-namespace Mxtb\Model\Lookup;
+namespace Mxtb\Model\Common;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
