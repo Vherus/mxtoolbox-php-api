@@ -13,7 +13,7 @@
  
 namespace Mxtb\Model\Lookup\Domain\Spf;
 
-use Mxtb\Model\Lookup\AbstractResponse;
+use Mxtb\Model\Common\AbstractResponse;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;

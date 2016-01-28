@@ -13,10 +13,16 @@
  
 namespace Mxtb\Model\Lookup\Network\Tcp;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class InformationResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Summary")
+     * @Accessor(getter="getSummary",setter="setSummary")
      */
     private $summary;
 	
@@ -30,6 +36,7 @@ class InformationResponse
 
     /**
      * @param string|null $summary
+     * @return InformationResponse
      */
     public function setSummary(string $summary) : InformationResponse
     {

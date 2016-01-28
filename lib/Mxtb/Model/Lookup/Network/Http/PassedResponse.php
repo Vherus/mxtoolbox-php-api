@@ -13,12 +13,18 @@
  
 namespace Mxtb\Model\Lookup\Network\Http;
 
-use Mxtb\Model\Lookup\AbstractResponse;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
+use Mxtb\Model\Common\AbstractResponse;
 
 class PassedResponse extends AbstractResponse
 {
     /**
-     * @var string|null
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     private $info;
 	
@@ -32,6 +38,7 @@ class PassedResponse extends AbstractResponse
 
     /**
      * @param string|null $info
+     * @return PassedResponse
      */
     public function setInfo(string $info) : PassedResponse
     {

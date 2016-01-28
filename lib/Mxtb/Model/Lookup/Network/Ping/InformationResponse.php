@@ -13,30 +13,44 @@
  
 namespace Mxtb\Model\Lookup\Network\ping;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class InformationResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Reply")
+     * @Accessor(getter="getReply",setter="setReply")
      */
     private $reply;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("IPAddress")
+     * @Accessor(getter="getIPAddress",setter="setIPAddress")
      */
     private $ipAdress;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Bytes")
+     * @Accessor(getter="getBytes",setter="setBytes")
      */
     private $bytes;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Time")
+     * @Accessor(getter="getTime",setter="setTime")
      */
     private $time;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("TTL")
+     * @Accessor(getter="getTTL",setter="setTTL")
      */
     private $ttl;
 	
@@ -50,6 +64,7 @@ class InformationResponse
 
     /**
      * @param string|null $reply
+     * @return InformationResponse
      */
     public function setReply(string $reply) : InformationResponse
     {
@@ -67,6 +82,7 @@ class InformationResponse
 
     /**
      * @param string|null $ipAddress
+     * @return InformationResponse
      */
     public function setIPAddress(string $ipAddress) : InformationResponse
     {
@@ -84,6 +100,7 @@ class InformationResponse
 
     /**
      * @param string|null $bytes
+     * @return InformationResponse
      */
     public function setBytes(string $bytes) : InformationResponse
     {
@@ -101,6 +118,7 @@ class InformationResponse
 
     /**
      * @param string|null $time
+     * @return InformationResponse
      */
     public function setTime(string $time) : InformationResponse
     {
@@ -118,6 +136,7 @@ class InformationResponse
 
     /**
      * @param string|null $ttl
+     * @return InformationResponse
      */
     public function setTTL(string $ttl) : InformationResponse
     {
