@@ -13,20 +13,30 @@
  
 namespace Mxtb\Model\Lookup\Network\Http;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 class InformationResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("ServerType")
+     * @Accessor(getter="getServerType",setter="setServerType")
      */
     private $serverType;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Status")
+     * @Accessor(getter="getStatus",setter="setStatus")
      */
     private $status;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("contentType")
+     * @Accessor(getter="getContentType",setter="setContentType")
      */
     private $contentType;
 	
@@ -40,6 +50,7 @@ class InformationResponse
 
     /**
      * @param string|null $serverType
+     * @return InformationResponse
      */
     public function setServerType(string $serverType) : InformationResponse
     {
@@ -57,6 +68,7 @@ class InformationResponse
 
     /**
      * @param string|null $status
+     * @return InformationResponse
      */
     public function setStatus(string $status) : InformationResponse
     {
@@ -74,6 +86,7 @@ class InformationResponse
 
     /**
      * @param string|null $contentType
+     * @return InformationResponse
      */
     public function setContentType(string $contentType) : InformationResponse
     {

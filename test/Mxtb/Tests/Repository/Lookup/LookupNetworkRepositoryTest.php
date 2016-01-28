@@ -15,7 +15,7 @@ namespace Mxtb\Tests\Repository\Lookup;
 
 use Mxtb\ApiToken;
 use Mxtb\MxToolbox;
-use Mxtb\Repository\Lookup\LookupNetworkRepository;
+use Mxtb\Repository\Lookup\NetworkRepository;
 use Mxtb\Model\Lookup\Network\Blacklist;
 
 class LookupNetworkRepositoryTest extends \PHPUnit_Framework_TestCase
@@ -24,7 +24,7 @@ class LookupNetworkRepositoryTest extends \PHPUnit_Framework_TestCase
     {
         // Arrange
         $mxtb = new MxToolbox(new ApiToken(), false);
-        $repo = new LookupNetworkRepository($mxtb);
+        $repo = new NetworkRepository($mxtb);
 
         // Act
         $blacklist = $repo->getBlacklist('example.com');

@@ -42,7 +42,6 @@ class SmtpTest extends \PHPUnit_Framework_TestCase
         $response->setTranscript(['test key' => 'test info']);
 		
         $response->setFailed(['test key' => 'test info']);
-        $response->setPassed(['test key' => 'test info']);
         $response->setInformation(['test key' => 'test info']);
 
         // Assert
@@ -65,7 +64,6 @@ class SmtpTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('test info', $response->getTranscript()['test key']);
 		
         $this->assertEquals('test info', $response->getFailed()['test key']);
-        $this->assertEquals('test info', $response->getPassed()['test key']);
         $this->assertEquals('test info', $response->getInformation()['test key']);
     }
 }

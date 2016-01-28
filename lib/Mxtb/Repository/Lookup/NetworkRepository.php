@@ -22,7 +22,7 @@ use Mxtb\Api\Lookup\Network\Ping;
 use Mxtb\Api\Lookup\Network\Trace;
 use Mxtb\MxToolbox;
 
-class LookupNetworkRepository
+class NetworkRepository
 {
     /**
      * @var MxToolbox

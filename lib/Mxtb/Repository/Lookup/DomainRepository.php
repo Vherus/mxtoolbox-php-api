@@ -21,7 +21,7 @@ use Mxtb\Api\Lookup\Domain\Txt;
 use Mxtb\Api\Lookup\Domain\Soa;
 use Mxtb\MxToolbox;
 
-class LookupDomainRepository
+class DomainRepository
 {
     /**
      * @var MxToolbox

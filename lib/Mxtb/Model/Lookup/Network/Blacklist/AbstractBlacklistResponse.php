@@ -17,11 +17,13 @@ namespace Mxtb\Model\Lookup\Network\Blacklist;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
-use Mxtb\Model\Lookup\AbstractResponse;
+use Mxtb\Model\Common\AbstractResponse;
 
 abstract class AbstractBlacklistResponse extends AbstractResponse
 {
     /**
+     * @var string
+     *
      * @Type("string")
      * @SerializedName("BlacklistResponseTime")
      * @Accessor(getter="getBlacklistResponseTime",setter="setBlacklistResponseTime")

@@ -185,7 +185,7 @@ class Monitor
     /**
      * @var string[]
      *
-     * @Type("array<string>")
+     * @Type("array<Mxtb\Model\Monitor\Response\Fail>")
      * @SerializedName("Failing")
      * @Accessor(getter="getFailing",setter="setFailing")
      */
@@ -194,14 +194,14 @@ class Monitor
     /**
      * @var string[]
      *
-     * @Type("array<string>")
+     * @Type("array<Mxtb\Model\Monitor\Response\Warning>")
      * @SerializedName("Warnings")
      * @Accessor(getter="getWarnings",setter="setWarnings")
      */
     private $warnings;
 	
     /**
-     * @var string[]
+     * @var string
      *
      * @Type("string")
      * @SerializedName("StatusSummary")

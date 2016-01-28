@@ -7,14 +7,12 @@
  * file that was distributed with this source code.
  *
  * @package mxtoolbox-php-api
- * @author Darien Livermore <daz.livermore@hotmail.com>
+ * @author Nathan King <nkvherus@gmail.com>
  * @version dev
  */
- 
-namespace Mxtb\Model\Lookup\Network\Smtp;
 
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Accessor;
+namespace Mxtb\Model\Collection;
 
-class FailedResponse extends AbstractSMTPResponse{	}
+use Mxtb\Model\Common\GenericCollection;
+
+class History extends GenericCollection { }
