@@ -35,15 +35,6 @@ class Smtp extends AbstractNetworkLookup
     private $failed;
 
     /**
-     * @var Passed
-     *
-     * @Type("array<Mxtb\Model\Lookup\Network\Smtp\PassedResponse>")
-     * @SerializedName("Passed")
-     * @Accessor(getter="getPassed",setter="setPassed")
-     */
-    private $passed;
-
-    /**
      * @var Information
      *
      * @Type("array<Mxtb\Model\Lookup\Network\Smtp\InformationResponse>")
@@ -67,24 +58,6 @@ class Smtp extends AbstractNetworkLookup
     public function setFailed(array $failed = null) : Smtp
     {
         $this->failed = new Failed($failed);
-        return $this;
-    }
-
-    /**
-     * @return Passed|null
-     */
-    public function getPassed()
-    {
-        return $this->passed;
-    }
-
-    /**
-     * @param PassedResponse[]|null $passed
-     * @return Smtp
-     */
-    public function setPassed(array $passed = null) : Smtp
-    {
-        $this->passed = new Passed($passed);
         return $this;
     }
 
