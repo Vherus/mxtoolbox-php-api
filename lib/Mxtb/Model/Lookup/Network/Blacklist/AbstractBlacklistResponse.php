@@ -22,6 +22,8 @@ use Mxtb\Model\Common\AbstractResponse;
 abstract class AbstractBlacklistResponse extends AbstractResponse
 {
     /**
+     * @var string
+     *
      * @Type("string")
      * @SerializedName("BlacklistResponseTime")
      * @Accessor(getter="getBlacklistResponseTime",setter="setBlacklistResponseTime")

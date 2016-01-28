@@ -20,6 +20,8 @@ use JMS\Serializer\Annotation\Accessor;
 class TranscriptResponse
 {
     /**
+     * @var string
+     *
      * @Type("string")
      * @SerializedName("Transcript")
      * @Accessor(getter="getTranscript",setter="setTranscript")
@@ -36,6 +38,7 @@ class TranscriptResponse
 
     /**
      * @param string|null $transcript
+     * @return TranscriptResponse
      */
     public function setTranscript(string $transcript = null) : TranscriptResponse
     {
