@@ -164,6 +164,16 @@ $onlyWithUid = $repository->all()->withUid('some-UID-here');
 
 You can, of course, create your own filters to use. If you create a useful filter, please feel free to request that it be included (with full credit) in this package!
 
+## Monitor - History
+
+You can gather the history of a monitor into a collection by using Mxtb\Repository\Monitor\HistoryRepository. Example usage:
+
+```php
+$monitorRepo = new MonitorRepository($mxtb);
+$historyRepo = new HistoryRepository($mxtb, $m->all()[0]);
+$history = $historyRepo->all();
+```
+
 ## Filtering the collections
 
 It's possible for you to easily filter the collections you receive (such as Passed, Failed, Monitor etc.) thanks to the GenericCollection class. The filter method accepts

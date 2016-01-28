@@ -16,15 +16,15 @@ namespace Mxtb\Api\Monitor;
 use Mxtb\Api\AbstractApi;
 use Mxtb\Model\Monitor\History as Model;
 use Mxtb\Model\Collection\History as Collection;
-use Mxtb\Model\Monitor\Monitor;
+use Mxtb\Model\Monitor\Monitor as MonitorModel;
 
 class History extends AbstractApi
 {
     /**
-     * @param Monitor $monitor
+     * @param MonitorModel $monitor
      * @return Model
      */
-    public function all(Monitor $monitor)
+    public function all(MonitorModel $monitor)
     {
         $arr = [];
         $history = json_decode($this->get('history/' . $monitor->getMonitorUid()), true);
