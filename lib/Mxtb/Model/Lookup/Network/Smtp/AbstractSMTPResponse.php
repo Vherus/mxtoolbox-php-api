@@ -14,6 +14,10 @@
 
 namespace Mxtb\Model\Lookup\Network\Smtp;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Accessor;
+
 use Mxtb\Model\Common\AbstractResponse;
 
 abstract class AbstractSMTPResponse extends AbstractResponse
