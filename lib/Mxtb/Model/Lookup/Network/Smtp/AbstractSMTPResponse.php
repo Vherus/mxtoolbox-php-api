@@ -19,7 +19,9 @@ use Mxtb\Model\Common\AbstractResponse;
 abstract class AbstractSMTPResponse extends AbstractResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     protected $info;
 
@@ -33,6 +35,7 @@ abstract class AbstractSMTPResponse extends AbstractResponse
 
     /**
      * @param null|string $info
+     * @return AbstractSMTPResponse
      */
     public function setInfo(string $info) : AbstractSMTPResponse
     {

@@ -16,17 +16,23 @@ namespace Mxtb\Model\Lookup\Network\Trace;
 class InformationResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("HopCount")
+     * @Accessor(getter="getHopCount",setter="setHopCount")
      */
     private $hopCount;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("IPAddress")
+     * @Accessor(getter="getIPAddress",setter="setIPAddress")
      */
     private $ipAddress;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("HostName")
+     * @Accessor(getter="getHostName",setter="setHostName")
      */
     private $hostName;
 	
@@ -40,6 +46,7 @@ class InformationResponse
 
     /**
      * @param string|null $hopCount
+     * @return InformationResponse
      */
     public function setHopCount(string $hopCount) : InformationResponse
     {
@@ -57,6 +64,7 @@ class InformationResponse
 
     /**
      * @param string|null $ipAddress
+     * @return InformationResponse
      */
     public function setIPAddress(string $ipAddress) : InformationResponse
     {
@@ -74,6 +82,7 @@ class InformationResponse
 
     /**
      * @param string|null $hostName
+     * @return InformationResponse
      */
     public function setHostName(string $hostName) : InformationResponse
     {

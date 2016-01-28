@@ -18,7 +18,9 @@ use Mxtb\Model\Common\AbstractResponse;
 class PassedResponse extends AbstractResponse
 {
     /**
-     * @var string|null
+     * @Type("string")
+     * @SerializedName("Info")
+     * @Accessor(getter="getInfo",setter="setInfo")
      */
     private $info;
 	
@@ -32,6 +34,7 @@ class PassedResponse extends AbstractResponse
 
     /**
      * @param string|null $info
+     * @return PassedResponse
      */
     public function setInfo(string $info) : PassedResponse
     {

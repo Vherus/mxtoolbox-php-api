@@ -16,7 +16,9 @@ namespace Mxtb\Model\Lookup\Network\Smtp;
 class InformationResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Banner")
+     * @Accessor(getter="getBanner",setter="setBanner")
      */
     private $banner;
 	
@@ -30,6 +32,7 @@ class InformationResponse
 
     /**
      * @param string|null $banner
+     * @return InformationResponse
      */
     public function setBanner(string $banner) : InformationResponse
     {

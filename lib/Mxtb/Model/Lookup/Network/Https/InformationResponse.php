@@ -16,62 +16,86 @@ namespace Mxtb\Model\Lookup\Network\Https;
 class InformationResponse
 {
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Icon")
+     * @Accessor(getter="getIcon",setter="setIcon")
      */
     private $icon;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Status")
+     * @Accessor(getter="getStatus",setter="setStatus")
      */
     private $status;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Name")
+     * @Accessor(getter="getName",setter="setName")
      */
     private $name;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Serial")
+     * @Accessor(getter="getSerial",setter="setSerial")
      */
     private $serial;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Algorithm")
+     * @Accessor(getter="getAlgorithm",setter="setAlgorithm")
      */
     private $algorithm;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("ValidFrom")
+     * @Accessor(getter="getValidFrom",setter="setValidFrom")
      */
     private $validFrom;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("VaidTo")
+     * @Accessor(getter="getValidTo",setter="setValidTo")
      */
     private $validTo;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Expires")
+     * @Accessor(getter="getExpires",setter="setInfo")
      */
-    private $empires;
+    private $expires;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Subject")
+     * @Accessor(getter="getSubject",setter="setSubject")
      */
     private $subject;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("SubjectData")
+     * @Accessor(getter="getSubjectData",setter="setSubjectData")
      */
     private $subjectData;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Primary")
+     * @Accessor(getter="getPrimary",setter="setPrimary")
      */
     private $primary;
 	
     /**
-     * @var string
+     * @Type("string")
+     * @SerializedName("Issuer")
+     * @Accessor(getter="getIssuer",setter="setIssuer")
      */
     private $issuer;
 	
@@ -85,6 +109,7 @@ class InformationResponse
 
     /**
      * @param string|null $icon
+     * @return InformationResponse
      */
     public function setIcon(string $icon) : InformationResponse
     {
@@ -102,6 +127,7 @@ class InformationResponse
 
     /**
      * @param string|null $status
+     * @return InformationResponse
      */
     public function setStatus(string $status) : InformationResponse
     {
@@ -119,6 +145,7 @@ class InformationResponse
 
     /**
      * @param string|null $name
+     * @return InformationResponse
      */
     public function setName(string $name) : InformationResponse
     {
@@ -136,6 +163,7 @@ class InformationResponse
 
     /**
      * @param string|null $serial
+     * @return InformationResponse
      */
     public function setSerial(string $serial) : InformationResponse
     {
@@ -153,6 +181,7 @@ class InformationResponse
 
     /**
      * @param string|null $algorithm
+     * @return InformationResponse
      */
     public function setAlgorithm(string $algorithm) : InformationResponse
     {
@@ -170,6 +199,7 @@ class InformationResponse
 
     /**
      * @param string|null $validFrom
+     * @return InformationResponse
      */
     public function setValidFrom(string $validFrom) : InformationResponse
     {
@@ -187,6 +217,7 @@ class InformationResponse
 
     /**
      * @param string|null $validTo
+     * @return InformationResponse
      */
     public function setValidTo(string $validTo) : InformationResponse
     {
@@ -204,6 +235,7 @@ class InformationResponse
 
     /**
      * @param string|null $expires
+     * @return InformationResponse
      */
     public function setExpires(string $expires) : InformationResponse
     {
@@ -221,6 +253,7 @@ class InformationResponse
 
     /**
      * @param string|null $subject
+     * @return InformationResponse
      */
     public function setSubject(string $subject) : InformationResponse
     {
@@ -238,6 +271,7 @@ class InformationResponse
 
     /**
      * @param string|null $subjectData
+     * @return InformationResponse
      */
     public function setSubjectData(string $subjectData) : InformationResponse
     {
@@ -255,6 +289,7 @@ class InformationResponse
 
     /**
      * @param string|null $primary
+     * @return InformationResponse
      */
     public function setPrimary(string $primary) : InformationResponse
     {
@@ -272,6 +307,7 @@ class InformationResponse
 
     /**
      * @param string|null $issuer
+     * @return InformationResponse
      */
     public function setIssuer(string $issuer) : InformationResponse
     {
