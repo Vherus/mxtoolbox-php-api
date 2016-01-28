@@ -16,8 +16,8 @@ namespace Mxtb\Model\Lookup;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
-use Mxtb\Repository\Lookup\LookupDomainRepository as Domain;
-use Mxtb\Repository\Lookup\LookupNetworkRepository as Network;
+use Mxtb\Repository\Lookup\DomainRepository as Domain;
+use Mxtb\Repository\Lookup\NetworkRepository as Network;
 use Mxtb\MxToolbox;
 
 class RelatedLookup
